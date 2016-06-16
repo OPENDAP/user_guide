@@ -1,18 +1,197 @@
-OPeNDAP provides a way to easily share science data across the internet.  It is used widely in earth-science research settings, but is not limited to that.  Using a flexible data model and a well-defined transmission format, an OPeNDAP client can request data from a wide variety of OPeNDAP servers, allowing researchers to enjoy flexibility similar to the flexibility of the web.
+UserGuide - OPeNDAP Documentation
+=================================
 
-This guide introduces the important concepts behind the OPeNDAP data model and transmission format, as well as the clients and servers that use them.  It is not a reference for any particular client or server, though you will find links to that documentation within its chapters.
+[[globalWrapper]]
+[[column-content]]
+[[content]]
+link:[]
 
-;[[UserGuideIntroduction|Introduction]] 
-:A look at the transmission format, the services provided by the OPeNDAP servers, and the advantages of using OPeNDAP.  All users will find it helpful to read this.
+[[firstHeading]]
+UserGuide
+---------
 
-;[[UserGuideDataModel|Data Model]]
-:A review of the data types OPeNDAP sends between client and server and issues involved in translating one to another.  Researchers who will be using OPeNDAP to transfer data may find this useful.
+[[bodyContent]]
+[[siteSub]]
+From OPeNDAP Documentation
 
-;[[UserGuideOPeNDAPMessages|OPeNDAP Messages]]
-:A closer look at the messages passed to and from an OPeNDAP server and the various services that may be provided.  Also reviews constraint expressions, which can be used to select data from specific datasets.  Researchers who will use OPeNDAP to get data for analysis will find this useful.
+[[contentSub]][[jump-to-nav]]
+Jump to: link:#column-one[navigation], link:#searchInput[search]
 
-;[[UserGuideServer|The OPeNDAP Server]]
-:The structure of the OPeNDAP server, including a closer look at the server software provided by the OPeNDAP group itself.  People involved in providing data to OPeNDAP users should read this before looking at the documentation for the server they will install.
+[[mw-content-text]]
+OPeNDAP provides a way to easily share science data across the internet.
+It is used widely in earth-science research settings, but is not limited
+to that. Using a flexible data model and a well-defined transmission
+format, an OPeNDAP client can request data from a wide variety of
+OPeNDAP servers, allowing researchers to enjoy flexibility similar to
+the flexibility of the web.
 
-;[[UserGuideClient|The OPeNDAP Client]]
-:The parts of the OPeNDAP client, including a review of the available client software, from within as well as outside the OPeNDAP group.  Developers interested in creating new OPeNDAP clients, as well as users who want to convert a program to a network-aware OPeNDAP client should read this chapter.
+This guide introduces the important concepts behind the OPeNDAP data
+model and transmission format, as well as the clients and servers that
+use them. It is not a reference for any particular client or server,
+though you will find links to that documentation within its chapters.
+
+link:/index.php/UserGuideIntroduction[Introduction] ::
+  A look at the transmission format, the services provided by the
+  OPeNDAP servers, and the advantages of using OPeNDAP. All users will
+  find it helpful to read this.
+
+link:/index.php/UserGuideDataModel[Data Model] ::
+  A review of the data types OPeNDAP sends between client and server and
+  issues involved in translating one to another. Researchers who will be
+  using OPeNDAP to transfer data may find this useful.
+
+link:/index.php/UserGuideOPeNDAPMessages[OPeNDAP Messages] ::
+  A closer look at the messages passed to and from an OPeNDAP server and
+  the various services that may be provided. Also reviews constraint
+  expressions, which can be used to select data from specific datasets.
+  Researchers who will use OPeNDAP to get data for analysis will find
+  this useful.
+
+link:/index.php/UserGuideServer[The OPeNDAP Server] ::
+  The structure of the OPeNDAP server, including a closer look at the
+  server software provided by the OPeNDAP group itself. People involved
+  in providing data to OPeNDAP users should read this before looking at
+  the documentation for the server they will install.
+
+link:/index.php/UserGuideClient[The OPeNDAP Client] ::
+  The parts of the OPeNDAP client, including a review of the available
+  client software, from within as well as outside the OPeNDAP group.
+  Developers interested in creating new OPeNDAP clients, as well as
+  users who want to convert a program to a network-aware OPeNDAP client
+  should read this chapter.
+
+Retrieved from
+"http://docs.opendap.org/index.php?title=UserGuide&oldid=4818"
+
+[[catlinks]][[column-one]]
+[[navigation-menu]]
+Navigation menu
+~~~~~~~~~~~~~~~
+
+[[p-cactions]]
+[[views]]
+Views
+^^^^^
+
+* [[ca-nstab-main]]
++
+link:/index.php/UserGuide[Page]
+* [[ca-talk]]
++
+/index.php?title=Talk:UserGuide&action=edit&redlink=1[Discussion]
+* [[ca-viewsource]]
++
+link:/index.php?title=UserGuide&action=edit[View source]
+* [[ca-history]]
++
+link:/index.php?title=UserGuide&action=history[History]
+
+[[p-personal]]
+[[personal-tools]]
+Personal tools
+^^^^^^^^^^^^^^
+
+* [[pt-login]]
++
+/index.php?title=Special:UserLogin&returnto=UserGuide[Log in]
+
+[[p-logo]]
+link:/index.php/Home[]
+
+[[p-navigation]]
+[[navigation]]
+Navigation
+^^^^^^^^^^
+
+* [[n-Home]]
++
+link:/index.php/Home[Home]
+* [[n-Documentation]]
++
+link:/index.php/Documentation[Documentation]
+* [[n-Developer-Info]]
++
+link:/index.php/Developer_Info[Developer Info]
+* [[n-Projects]]
++
+link:/index.php/Development[Projects]
+* [[n-OPULS.2FDAP4]]
++
+link:/index.php/OPULS_Development[OPULS/DAP4]
+* [[n-Working-Groups]]
++
+link:/index.php/Working_Groups[Working Groups]
+* [[n-Meetings]]
++
+link:/index.php/Meetings[Meetings]
+* [[n-Jira]]
++
+https://opendap.atlassian.net/[Jira]
+* [[n-Git.28hub.29]]
++
+https://github.com/opendap[Git(hub)]
+* [[n-Document-Templates]]
++
+link:/index.php/Document_Templates[Document Templates]
+* [[n-help]]
++
+/index.php/Help:Contents[Help]
+* [[n-Trac-.28retired.29]]
++
+https://scm.opendap.org/trac/[Trac (retired)]
+* [[n-Subversion-.28retired.29]]
++
+https://scm.opendap.org/svn/[Subversion (retired)]
+
+[[p-search]]
+[[search]]
+Search
+^^^^^^
+
+[[searchBody]]
+ 
+
+[[p-tb]]
+[[tools]]
+Tools
+^^^^^
+
+* [[t-whatlinkshere]]
++
+/index.php/Special:WhatLinksHere/UserGuide[What links here]
+* [[t-recentchangeslinked]]
++
+/index.php/Special:RecentChangesLinked/UserGuide[Related changes]
+* [[t-specialpages]]
++
+/index.php/Special:SpecialPages[Special pages]
+* [[t-print]]
++
+link:/index.php?title=UserGuide&printable=yes[Printable version]
+* [[t-permalink]]
++
+link:/index.php?title=UserGuide&oldid=4818[Permanent link]
+* [[t-info]]
++
+link:/index.php?title=UserGuide&action=info[Page information]
+
+[[footer]]
+[[f-poweredbyico]]
+link://www.mediawiki.org/[image:/skins/common/images/poweredby_mediawiki_88x31.png[Powered
+by MediaWiki,width=88,height=31]]
+
+* [[lastmod]]
++
+This page was last modified on 29 September 2009, at 21:15.
+* [[viewcount]]
++
+This page has been accessed 40,431 times.
+* [[privacy]]
++
+/index.php/OPeNDAP_Documentation:Privacy_policy[Privacy policy]
+* [[about]]
++
+/index.php/OPeNDAP_Documentation:About[About OPeNDAP Documentation]
+* [[disclaimer]]
++
+/index.php/OPeNDAP_Documentation:General_disclaimer[Disclaimers]
