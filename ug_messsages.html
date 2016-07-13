@@ -1,0 +1,1989 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title>UserGuideOPeNDAPMessages - OPeNDAP Documentation</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>UserGuideOPeNDAPMessages - OPeNDAP Documentation</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph" id="content"><p><a href=""></a></p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="firstHeading">UserGuideOPeNDAPMessages</h2>
+<div class="sectionbody">
+<div class="paragraph" id="siteSub"><p>From OPeNDAP Documentation</p></div>
+<div class="paragraph" id="jump-to-nav"><p>Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></p></div>
+<div class="paragraph" id="mw-content-text"><p><a href="/index.php/UserGuide">Back to User Guide Contents</a></p></div>
+<div class="sect2">
+<h3 id="contents">Contents</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#The_OPeNDAP_Messages">1 The OPeNDAP Messages</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#Ancillary_Data">1.1 Ancillary Data</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#Dataset_Descriptor_Structure">1.1.1 Dataset Descriptor
+Structure</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#Dataset_Attribute_Structure">1.1.2 Dataset Attribute Structure</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#Containers">1.1.2.1 Containers</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#Global_Attributes">1.1.2.2 Global Attributes</a>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#Data_Transmission">1.2 Data Transmission</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#Other_Services">1.3 Other Services</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#ASCII_Service">1.3.1 ASCII Service</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#Info_Service">1.3.2 Info Service</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#WWW_Interface_Service">1.3.3 WWW Interface Service</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#Version_Service">1.3.4 Version Service</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#SOAP">1.3.5 SOAP</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#DDX">1.3.6 DDX</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#THREDDS">1.3.7 THREDDS</a>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#Constraint_Expressions">2 Constraint Expressions</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#Selecting_Data:_Using_Constraint_Expressions">2.1 Selecting Data:
+Using Constraint Expressions</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#Constraint_Expression_Syntax">2.1.1 Constraint Expression
+Syntax</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#Simple_Constraint_Expression_Examples">2.1.1.1 Simple
+Constraint Expression Examples</a>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="#Operators.2C_Special_Functions.2C_and_Data_Types">2.1.2
+Operators, Special Functions, and Data Types</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#Constraint_Expression_Functions">2.1.3 Constraint Expression
+Functions</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#Pattern_Matching_with_Constraint_Expressions">2.1.4 Pattern
+Matching with Constraint Expressions</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#Optimizing_the_Query">2.1.5 Optimizing the Query</a>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_the_opendap_messages">1 The OPeNDAP Messages</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>An OPeNDAP server is in the business of making replies to queries for
+data and other services. The queries come in the form of specially
+formed URLs and the replies consist of MIME documents whose contents are
+described in the sections below. (Technically speaking, the response
+document headers aren’t exactly right, but they function in the same
+way.)</p></div>
+<div class="paragraph"><p>All the requests start with a root URL, and they all are in the form of
+a GET, using a suffix on the root URL and a constraint expression to
+indicate which service is requested and what the parameters are.</p></div>
+<div class="paragraph"><p>(There is also an experimental SOAP interface that uses a POST to
+request data.)</p></div>
+<div class="paragraph"><p>The replies come in three categories: Ancillary data, Data, and the
+other services. The following sections cover each of them, beginning
+with the ancillary data messages.</p></div>
+<div class="sect2">
+<h3 id="_1_1_ancillary_data">1.1 Ancillary Data</h3>
+<div class="paragraph"><p>In order to use some data set, a user must have some information at his
+or her disposal that is not strictly included in the data itself. This
+information, called ancillary data, describes the shape and size of the
+data types that make up the data set, and provides information about
+many of the data set’s attributes, as well. OPeNDAP uses two different
+structures, to supply this ancillary information about an OPeNDAP data
+set. The Dataset Descriptor Structure (DDS) describes the data set’s
+structure and the relationships between its variables, and the Dataset
+Attribute Structure (DAS) provides information about the variables
+themselves. Both structures are described in the following sections.</p></div>
+<div class="sect3">
+<h4 id="_1_1_1_dataset_descriptor_structure">1.1.1 Dataset Descriptor Structure</h4>
+<div class="paragraph"><p>In order to translate data from one data model into another, OPeNDAP
+must have some knowledge about the types of the variables, and their
+semantics, that comprise a given data set. It must also know something
+about the relations of those variables—even those relations which are
+only implicit in the dataset’s own API. This knowledge about the
+dataset’s structure is contained in a text description of the dataset
+called the &#8220;Dataset Description Structure&#8221; (DDS).</p></div>
+<div class="paragraph"><p>The DDS does not describe how the information in the data set is
+physically stored, nor does it describe how the &#8220;native&#8221; API is used
+to access that data. Those pieces of information are contained in the
+API itself and in the OPeNDAP server, respectively. The DDS contains
+knowledge about the dataset variables and the interrelations of those
+variables. The server uses the DDS to describe the structure of a
+particular dataset to a client.</p></div>
+<div class="paragraph"><p>The DDS is a textual description of the variables and their classes that
+make up some data set. The DDS syntax is based on the variable
+declaration and definition syntax of C and C++. A variable that is a
+member of one of the base type classes is declared by writing the class
+name followed by the variable name. The type constructor classes are
+declared using C’s brace notation. A grammar for the syntax is given in
+the table below. (Note that the Dataset keyword has the same syntactic
+function as Structure but is used for the specific job of enclosing the
+entire data set even when it does not technically need an enclosing
+element.)</p></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 1. Dataset Descriptor Structure Syntax</caption>
+<col width="20%" />
+<col width="80%" />
+<thead>
+<tr>
+<th align="left" valign="top">"data set </th>
+<th align="left" valign="top">Dataset { declarations } name;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">"declaration</p></td>
+<td align="left" valign="top"><p class="table">List declaration</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;base-type&#8221; var;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">Structure {&#8220;declarations&#8221;} &#8220;var&#8221;;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">Sequence {&#8220;declarations&#8221;} &#8220;var&#8221;;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">Grid { ARRAY : &#8220;declaration&#8221; MAPS: &#8220;declarations&#8221; } &#8220;var&#8221;;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;base-type&#8221;</p></td>
+<td align="left" valign="top"><p class="table">Byte</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">Int32</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">UInt32</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">Float64</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">String</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">Url</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;var&#8221;</p></td>
+<td align="left" valign="top"><p class="table">&#8220;name&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;name array-decl&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;array-decl&#8221;</p></td>
+<td align="left" valign="top"><p class="table">[integer ]</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">[&#8220;name&#8221; = integer]</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;name&#8221;</p></td>
+<td align="left" valign="top"><p class="table">User-chosen name of data set, variable, or array dimension.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>A DDS is returned in response to a request for the DDS, and it is also
+part of the data return. The request URL for the DDS is composed of the
+root URL, with the suffix &#8220;.dds&#8221;. For example, if a data set is
+located at http:/tests.opendap.org/data/mydata.dat then you’ll find the
+DDS at http:/tests.opendap.org/data/mydata.dat.dds</p></div>
+<div class="paragraph"><p>An example DDS entry is shown below. (There are more in
+<a href="/index.php/UserGuideDataModel">Data_Models</a>, where there’s also an
+explanation of the information implied by the data model.)</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code> Dataset {
+  Int32 catalog_number;
+  Sequence {
+    String experimenter;
+    Int32 time;
+    Structure {
+      Float64 latitude;
+      Float64 longitude;
+    } location;
+    Sequence {
+      Float64 depth;
+      Float64 salinity;
+      Float64 oxygen;
+      Float64 temperature;
+    } cast;
+  } station;
+} data;</code></pre>
+</div></div>
+<div class="sect4">
+<h5 id="_example_dataset_descriptor_entry">Example Dataset Descriptor Entry</h5>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_1_2_dataset_attribute_structure">1.1.2 Dataset Attribute Structure</h4>
+<div class="paragraph"><p>The &#8220;Dataset Attribute Structure&#8221; (DAS) is used to store attributes
+for variables in the dataset. An attribute is any piece of information
+about a variable that the creator wants to bind with that variable
+<em>excluding</em> the type and size, which are part of the DDS. Typical
+attributes might range from error measurements to text describing how
+the data was collected or processed.</p></div>
+<div class="paragraph"><p>In principle, attributes are not processed by software, other than to be
+displayed. However, many systems rely on attributes to store extra
+information that is necessary to perform certain manipulations of data.
+In effect, attributes are used to store information that is used &#8220;by
+convention&#8221; rather than &#8220;by design&#8221;. OPeNDAP can effectively support
+these conventions by passing the attributes from data set to user
+program via the DAS. (Of course, OPeNDAP cannot enforce conventions in
+datasets where they were not followed in the first place.0</p></div>
+<div class="paragraph"><p>The syntax for attributes in a DAS is given in the table below. Every
+attribute of a variable is a triple: attribute name, type and value. The
+name of an attribute is an identifier, consisting of alphanumeric
+characters, plus &#8220;_&#8221; and &#8220;/&#8221;. The type of an attribute may be one
+of: &#8220;Byte&#8221;, &#8220;Int32&#8221;, &#8220;UInt32&#8221;, &#8220;Float64&#8221;, &#8220;String&#8221; or &#8220;Url&#8221;.
+An attribute may be scalar or vector. In the latter case the values of
+the vector are separated by commas (,) in the textual representation of
+the DAS.</p></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 2. Dataset Attribute Structure Syntax</caption>
+<col width="33%" />
+<col width="66%" />
+<thead>
+<tr>
+<th align="left" valign="top">&#8220;DAS&#8221; </th>
+<th align="left" valign="top">Attributes &#8220;{var-attr-list}&#8221;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;var-attr-list&#8221;</p></td>
+<td align="left" valign="top"><p class="table">&#8220;var-attr&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;var-attr-list&#8221; &#8220;var-attr&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">(empty list)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;var-attr&#8221;</p></td>
+<td align="left" valign="top"><p class="table">&#8220;variable&#8221; {&#8220;attr-list&#8221;}</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;container&#8221; {var-attr-list}</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;global-attr&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;global-attr&#8221;</p></td>
+<td align="left" valign="top"><p class="table">Global &#8220;variable&#8221; {&#8220;attr-list&#8221;}</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;attr-list&#8221;</p></td>
+<td align="left" valign="top"><p class="table">attr-triple;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;attr-list&#8221; &#8220;attr-triple&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;(empty list)&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;attr-triple&#8221;</p></td>
+<td align="left" valign="top"><p class="table">attr-type attribute attr-val-vec;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;attr-val-vec&#8221;</p></td>
+<td align="left" valign="top"><p class="table">&#8220;attr-val&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;attr-val-vec&#8221;, &#8220;attr-val&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;attr-val&#8221;</p></td>
+<td align="left" valign="top"><p class="table">numeric value</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;variable&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">&#8220;string&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;attr-type&#8221;</p></td>
+<td align="left" valign="top"><p class="table">&#8220;Byte&#8221;</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">Int32</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">UInt32</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">Float64</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">String</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table">Url</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;variable&#8221;</p></td>
+<td align="left" valign="top"><p class="table">user-chosen variable name</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;attribute&#8221;</p></td>
+<td align="left" valign="top"><p class="table">user-chosen attribute name</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">&#8220;container&#8221;</p></td>
+<td align="left" valign="top"><p class="table">user-chosen container name</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>A DAS is returned in response to a request for the DAS. Unlike the DDS,
+it is not part of the data return. The request URL for the DAS is
+composed of the root URL, with the suffix &#8220;.das&#8221;. For example, if a
+data set is located at http:/tests.opendap.org/data/mydata.dat then
+you’ll find the DAS at http:/tests.opendap.org/data/mydata.dat.das</p></div>
+<div class="sect4">
+<h5 id="_1_1_2_1_containers">1.1.2.1 Containers</h5>
+<div class="paragraph"><p>An attribute can contain another attribute, or a set of attributes. This
+is roughly comparable to the way compound variables can contain other
+variables in the DDS. The container defines a new lexical scope for the
+attributes it contains.</p></div>
+<div class="paragraph"><p>Consider the following example:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code> Attributes {
+   Bill {
+      String LastName "Evans";
+      Byte Age 53;
+      String DaughterName "Matilda";
+      Matilda {
+         String LastName "Fink";
+         Byte Age 26;
+      }
+   }
+}</code></pre>
+</div></div>
+</div>
+<div class="sect4">
+<h5 id="_an_example_of_attribute_containers">An Example of Attribute Containers</h5>
+<div class="paragraph"><p>Here, the attribute Bill.LastName would be associated with the string
+&#8220;Evans&#8221;, and Bill.Age with the number 53. However, the attribute
+Bill.Matilda.LastName would be associated with the string &#8220;Fink&#8221; and
+Bill.Matilda.Age with the number 26.</p></div>
+<div class="paragraph"><p>Using container attributes as above, you can construct a DAS that
+exactly mirrors the construction of a DDS that uses compound data types,
+like &#8220;Structure&#8221; and &#8220;Sequence&#8221;. Note that though the Bill attribute
+is a container, it has attributes of its own, as well. This exactly
+corresponds to the situation where, for example, a &#8220;Sequence&#8221; would
+have attributes belonging to it, as well as attributes for each of its
+member variables. Suppose the Sequence represented a single time series
+of measurements, where several different data types are measured at each
+time. The Sequence attributes might be the time and location of the
+measurements, and the individual variables might have attributes
+describing the method or accuracy of that measurement.</p></div>
+</div>
+<div class="sect4">
+<h5 id="_1_1_2_2_global_attributes">1.1.2.2 Global Attributes</h5>
+<div class="paragraph"><p>A &#8220;global attribute&#8221; is not bound to a particular identifier in a
+dataset; these attributes are stored in one or more containers with the
+name Global or ending with _Global. Global attributes are used to
+describe attributes of an entire dataset. For example, a global
+attribute might contain the name of the satellite or ship from which the
+data was collected. Here’s an example:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code> Attributes {
+   Bill {
+      String LastName "Evans";
+      Byte Age 53;
+      String DaughterName "Matilda";
+      Matilda {
+         String LastName "Fink";
+         Byte Age 26;
+      }
+   }
+   Global {
+      String Name "FamilyData";
+      String DateCompiled "11/17/98";
+   }
+}</code></pre>
+</div></div>
+</div>
+<div class="sect4">
+<h5 id="_an_example_of_global_attributes">An Example of Global Attributes</h5>
+<div class="paragraph"><p>Global attributes can be used to define a certain view of a dataset. For
+example, consider the following DAS:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code> Attributes {
+   CTD {
+      String Ship "Oceanus";
+      Temp {
+         String Name "Temperature";
+      }
+      Salt {
+         String Name "Salinity";
+      }
+   }
+   Global {
+      String Names "OPeNDAP";
+   }
+   FNO_Global {
+      String Names "FNO";
+      CTD {
+         Temp {
+            String FNOName "TEMPERATURE";
+         }
+         Salinity {
+            String FNOName "SALINITY";
+         }
+      }
+   }
+}</code></pre>
+</div></div>
+</div>
+<div class="sect4">
+<h5 id="_an_example_of_global_attributes_in_use">An Example of Global Attributes In Use</h5>
+<div class="paragraph"><p>Here, a dataset contains temperature and salinity measurements. To aid
+processing of this dataset by some OPeNDAP client, long names are
+supplied for the Temp and Salt variables. However, a different client
+(FNO) spells variable names differently. Since it is seldom practical to
+come up with general-purpose translation tables, the dataset
+administrator has chosen to include these synonyms under the FNO_Global
+attributes, as a convenience to those users.</p></div>
+<div class="paragraph"><p>Using global attributes, a dataset or catalog administrator can create a
+layer of attributes to make OPeNDAP datasets conform to several
+different dataset naming standards. This becomes significant when trying
+to compile an OPeNDAP dataset database.</p></div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_2_data_transmission">1.2 Data Transmission</h3>
+<div class="paragraph"><p>An OPeNDAP server returns data to a client in response to a request URL
+composed of the root URL, with the suffix &#8220;.dods&#8221;. For example, if a
+data set is located at http:/tests.opendap.org/data/mydata.dat then
+you’ll find the data at http:/tests.opendap.org/data/mydata.dat.dods</p></div>
+<div class="paragraph"><p>The data is returned in a MIME document that consists of two parts: the
+<a href="#Dataset_Descriptor_Structure">DDS</a>, and the data encoded according
+to the description in
+<a href="/index.php/UserGuideDataModel#External_Data_Representation">External
+Data Representation</a>. (The returned document is sometimes called the
+DataDDS.) The two parts are separated by this string:</p></div>
+<div class="paragraph"><p>Data:&lt;CR&gt;&lt;NL&gt;</p></div>
+<div class="paragraph"><p>The DDS included is modified according to any
+<a href="#Constraint_Expression">constraint expression</a> that may have been
+applied. That is, the returned DDS describes the returned data.</p></div>
+<div class="paragraph"><p>For example, consider a a request for data from a data set with a DDS
+like this:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>Dataset {
+    Grid {
+      Array:
+        Int16 sst[time = 1857][lat = 89][lon = 180];
+      Maps:
+        Float64 time[time = 1857];
+        Float32 lat[lat = 89];
+        Float32 lon[lon = 180];
+    } sst;
+    Float64 time_bnds[time = 1857][nbnds = 2];
+} sst.mnmean.nc;</code></pre>
+</div></div>
+<div class="paragraph"><p>This is the
+<a href="http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.dds">DDS</a> of a
+typical gridded dataset. Suppose, though, that you ask for only the time
+values of the data set. The DDS of the result will look like this:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>Dataset {
+    Float64 time[time = 1857];
+} sst.mnmean.nc;</code></pre>
+</div></div>
+<div class="paragraph"><p>This <a href="http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.dds?time">DDS</a>
+will be included in the DataDDS return, ahead of the encoded array of
+1857 64-bit time values.</p></div>
+<div class="paragraph"><p>For more information about sampling OPeNDAP data sets, see the section
+below about <a href="#Constraint_Expressions">constraint expressions</a>.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">A request for data from an OPeNDAP client will
+generally make three different service requests, for data attributes
+(DAS), data descriptors (DDS), and for data. The prepackaged OPeNDAP
+clients do this for you, so you may not be aware that three requests
+are made for each URL.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_1_3_other_services">1.3 Other Services</h3>
+<div class="paragraph"><p>In addition to the <a href="#Data_Transmission">data</a>,
+<a href="#Dataset_Descriptor_Structure">DDS</a>, and
+<a href="#Dataset_Attribute_Structure">DAS</a>, an OPeNDAP server <em>may</em> provide
+any or all of the services described in the sections that follow.</p></div>
+<div class="sect3">
+<h4 id="_1_3_1_ascii_service">1.3.1 ASCII Service</h4>
+<div class="paragraph"><p>This service returns an ASCII representation of the requested data. This
+can make the data available to a wide variety of standard web browsers.
+This service is activated when the server receives a URL ending with
+.asc or .ascii.</p></div>
+<div class="paragraph"><p>Click
+<a href="http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?sst%5B1:3%5D%5B45:48%5D%5B90:95%5D">http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?sst%5B1:3%5D%5B45:48%5D%5B90:95%5D</a>
+to see an ASCII response.</p></div>
+<div class="paragraph"><p>Note that unlike the data response, the ASCII response does not contain
+a DDS for the returned data. Instead it just returns the simple text
+message.</p></div>
+<div class="paragraph"><p>The <a href="/index.php/QuickStart">Quick Start Guide</a> contains many examples
+of the ASCII response.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_1_3_2_info_service">1.3.2 Info Service</h4>
+<div class="paragraph"><p>The Info service formats information from a data set’s DAS and DDS into
+a single HTML document suitable for viewing in a web browser. The
+returned document may include information about both the data server
+itself (such as server functions implemented), and the dataset
+referenced in the URL. The server administrator determines what
+information is returned in response to such a request. The services is
+activated by a URL ending in .info.</p></div>
+<div class="paragraph"><p>Click <a href="http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.info">http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.info</a> to see
+an Info response.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_1_3_3_www_interface_service">1.3.3 WWW Interface Service</h4>
+<div class="paragraph"><p>The WWW service is another way to browse a server’s data interactively.
+You can use this either to look at an individual data file, or a
+directory of files (or &#8220;files&#8221; since a server may contain logical
+entities that look like files).</p></div>
+<div class="paragraph"><p>The server uses a data set’s DDS and DAS to construct a web form you can
+use to construct a URL that subsamples the data set (using a
+<a href="#Constraint_Expressions">constraint expression</a>). You can copy the
+resulting URL into another browser, or use one of the buttons on the
+form to download data.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="Reynolds_ifh.png" alt="OPeNDAP Server Dataset Access Form" />
+</div>
+<div class="title">Figure 1. OPeNDAP Server Dataset Access Form</div>
+</div>
+<div class="paragraph"><p>If a server receives a URL that either ends in a slash (/) or
+contents.html, it returns a web page that looks like a standard web
+browser’s directory view.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="Test.oopendap.org_directory_view.png" alt="OPeNDAP Hyrax: Contents of/data/nc" />
+</div>
+<div class="title">Figure 2. A Web Page that Looks Like a Standard Web Browser&#8217;s Directory View</div>
+</div>
+<div class="paragraph"><p>Each link in the directory view opens up the WWW service version of that
+data.</p></div>
+<div class="paragraph"><p>The <a href="/index.php/QuickStart#An_Easier_Way">Quick Start Guide</a> contains
+more information about browsing OPeNDAP data interactively.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_1_3_4_version_service">1.3.4 Version Service</h4>
+<div class="paragraph"><p>This service returns the version information for the OPeNDAP server
+software running on the server. This service is triggered by a URL
+ending with .ver. The return is a short text message containing the
+relevant version numbers.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_1_3_5_soap">1.3.5 SOAP</h4>
+<div class="paragraph"><p>The OPeNDAP server provided by the OPeNDAP group contains an
+experimental SOAP service, allowing users to make requests and get
+responses by exchanging SOAP XML documents. This is an experimental
+service, and if you’re writing an application depending on it, it’s best
+to contact the OPeNDAP developer team.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_1_3_6_ddx">1.3.6 DDX</h4>
+<div class="paragraph"><p>The DDX is an XML version of the DAS and DDS, combined. It is triggered
+by a URL ending with .ddx. You can find the schema for the DDX at
+<a href="http://xml.opendap.org/dap/dap2.xsd">http://xml.opendap.org/dap/dap2.xsd</a>.</p></div>
+<div class="paragraph"><p>The DDX is designed to contain data, too, but this is not yet
+implemented. You will see an empty dataBLOB element at the end of each
+DDX, which will eventually hold returned data.</p></div>
+<div class="paragraph"><p>The DDX response can be modified with a
+<a href="#Constraint_Expressions">constraint expression</a>. Like the DDS, the
+DDX will describe only the data actually returned.</p></div>
+<div class="paragraph"><p>The DDX and the DataDDX (containing the dataBLOB) are the nucleus of
+what will become version 4 of the DAP.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_1_3_7_thredds">1.3.7 THREDDS</h4>
+<div class="paragraph"><p>Some OPeNDAP servers (including <a href="/index.php/Hyrax">Hyrax</a>, the server
+supplied by the OPeNDAP group) can make sensible replies to requests for
+THREDDS catalog information. This can serve to &#8220;advertise&#8221; a server’s
+data by having it appear in catalogs accumulated by THREDDS browsers.
+For more information about THREDDS, see the
+<a href="http://www.unidata.ucar.edu/projects/THREDDS/tech/TDS.html">THREDDS</a> home
+page.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_constraint_expressions">2 Constraint Expressions</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The OPeNDAP software is not only a data transport mechanism. Using
+OPeNDAP, you can subsample the data you are looking at. That is, you can
+request an entire data file, or just a small piece of it.</p></div>
+<div class="sect2">
+<h3 id="_2_1_selecting_data_using_constraint_expressions">2.1 Selecting Data: Using Constraint Expressions</h3>
+<div class="paragraph"><p>The URL such as this one:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz</code></pre>
+</div></div>
+<div class="paragraph"><p>refers to the entire dataset contained in the mnmean.nc file. A user
+may, however, choose to sample the dataset simply by modifying the
+submitted URL. The constraint expression attached to the URL directs
+that the data set specified by the first part of the URL be sampled to
+select only the data of interest from a dataset.</p></div>
+<div class="paragraph"><p>Because the expression modifies the URL used to access data, this works
+even for programs that do not have a built-in way to accomplish such
+selections. This can vastly reduce the amount of data a program needs to
+process, and reduce the network load of transmitting that data to the
+client.</p></div>
+<div class="sect3">
+<h4 id="_2_1_1_constraint_expression_syntax">2.1.1 Constraint Expression Syntax</h4>
+<div class="paragraph"><p>A constraint expression is appended to the target URL following a
+question mark, as in the following examples:</p></div>
+<div class="paragraph"><p><a href="http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?sst%5B3%5D%5B4%5D%5B5%5D">…/nc/sst.mnmean.nc.gz?sst[3</a>[4][5]]</p></div>
+<div class="paragraph"><p><a href="http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?sst%5B0:1%5D%5B13:16%5D%5B103:105%5D">…/nc/sst.mnmean.nc.gz?sst[0:1</a>[13:16][103:105]]</p></div>
+<div class="paragraph"><p><a href="http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?geogrid(sst,62,206,56,210,%2219722%3Ctime%3C19755%22)">…/nc/sst.mnmean.nc.gz?geogrid(sst,62,206,56,210,&#8220;19722&lt;time&lt;19755&#8221;)</a></p></div>
+<div class="paragraph"><p><a href="http://test.opendap.org/dap/data/ff/gsodock.dat.asc?Time,Sea_Temp">…/ff/gsodock.dat?Time,Sea_Temp</a></p></div>
+<div class="paragraph"><p><a href="http://test.opendap.org/dap/data/ff/gsodock.dat.asc?Time,Sea_Temp&amp;Time%3C35234.1">…/ff/gsodock.dat?Time,Sea_Temp&amp;Time%3C35234.1</a></p></div>
+<div class="paragraph"><p><a href="http://test.opendap.org/dap/data/ff/gsodock.dat.asc?Time,Sea_Temp&amp;Time%3C35234.1&amp;Sea_Temp%3C18">…/ff/gsodock.dat?Time,Sea_Temp&amp;Time%3C35234.1&amp;Sea_Temp%3C18</a></p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">An OPeNDAP data set can contain an extraordinary amount of
+data. You almost certainly do <em>not</em> want to make an unconstrained
+request to a data set without knowing something about it. Familiarize
+yourself with the DDS and DAS before asking for data; it can prevent
+overload.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>A constraint expression consists of two parts: a projection and a
+selection, separated by an ampersand (&amp;). Either part may contain
+several sub-expressions. Either part may be present, or both.</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>...?proj_1,proj_2,...,proj_n&amp;sel_1&amp;sel_2&amp;...&amp;sel_m</code></pre>
+</div></div>
+<div class="paragraph"><p>A projection is simply a comma-separated list of the variables that are
+to be returned to the client. If an array is to be subsampled, the
+projection specifies the manner in which the sampling is to be done. If
+the selection is omitted, all the variables in the projection list are
+returned. If the projection is omitted, the entire dataset is returned,
+subject to the evaluation of the selection expression. The projection
+can also include functional expressions of the form:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>...?function(arg_1,arg_2,...,arg_n)</code></pre>
+</div></div>
+<div class="paragraph"><p>where the arguments are variables from the dataset, scalar values, or
+other functions. (See <a href="#Constraint_Expression_Functions">Constraint
+Expression Functions</a> below.)</p></div>
+<div class="paragraph"><p>A selection expression leads with an ampersand and is a boolean
+expression of the form &#8220;variable operator variable&#8221;, &#8220;variable
+operator value&#8221; or &#8220;function(arg_1,arg_2,…,arg_n)&#8221;, where</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+operator 
+</dt>
+<dd>
+<p>
+  Can be one of the relational operators listed in the table below.
+</p>
+</dd>
+<dt class="hdlist1">
+variable 
+</dt>
+<dd>
+<p>
+  Can be any variable recorded in the dataset.
+</p>
+</dd>
+<dt class="hdlist1">
+value 
+</dt>
+<dd>
+<p>
+  Can be any scalar, string, function, or list of numbers (Lists are
+  denoted by comma-separated items enclosed in curly braces ,for
+  example, {3,11,4.5}.); and
+</p>
+</dd>
+<dt class="hdlist1">
+function 
+</dt>
+<dd>
+<p>
+  Is a function defined by the server to operate on variables or values,
+  and to return a boolean value.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>Each selection clause begins with an ampersand (&amp;). You can think of
+this as representing the &#8220;AND&#8221; boolean operation, but remember that it
+is actually a prefix operator, not an infix operator. That is, it must
+appear at the beginning of each selection clause, no matter what. This
+means that a constraint expression that contains no projection clause
+must still have an &amp; in front of the first selection clause.</p></div>
+<div class="paragraph"><p>There is no limit on the number of selection clauses that can be
+combined to create a compound constraint expression. Data that produces
+a true (non-zero) value for the entire selection expression will be
+included in the data returned to the client by the server. If only a
+part of some data structure, such as a Sequence, satisfies the selection
+criteria, then only that part will be returned.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">Due to the differences in data model paradigms,
+selection is not implemented for the OPeNDAP array data types, such as
+Grid or Array. However, many OPeNDAP servers implement selection
+functions you can use for the same effect. (See
+<a href="#Constraint_Expression_Functions">Constraint Expression Functions</a>
+below for more about functions.)</td>
+</tr></table>
+</div>
+<div class="sect4">
+<h5 id="_2_1_1_1_simple_constraint_expression_examples">2.1.1.1 Simple Constraint Expression Examples</h5>
+<div class="paragraph"><p>Consider the DDS below. This is the description of a dataset containing
+station data including temperature, oxygen, and salinity. Each station
+also contains 20 oxygen data points, taken at 20 fixed depths, used for
+calibration of the data.</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>Dataset {
+   Sequence{
+      Int32 day;
+      Int32 month;
+      Int32 year;
+      Float64 lat;
+      Float64 lon;
+      Float64 O2cal[20];
+      Sequence{
+         Float64 press;
+         Float64 temp;
+         Float64 O2;
+         Float64 salt;
+      } cast;
+      String comments;
+   } station;
+} arabian-sea;</code></pre>
+</div></div>
+</div>
+<div class="sect4">
+<h5 id="_sample_data_descriptor">Sample Data Descriptor</h5>
+<div class="paragraph"><p>The following URL will return only the pressure and temperature pairs of
+this dataset. (Note that the constraint expression parser removes all
+spaces, tabs, and newline characters before the expression is parsed.)
+There is only a projection clause, without a selection, in this
+constraint expression.</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>http://oceans.edu/jg/exp1O2/cruise?station.cast.press,station.cast.temp</code></pre>
+</div></div>
+<div class="paragraph"><p>We have assumed that the dataset was stored in the JGOFS format on the
+remote host oceans.edu, in a file called explO2/cruise. For the sake of
+brevity, from here on we will omit the first part of the URL, to
+concentrate on the constraint expression alone.</p></div>
+<div class="paragraph"><p>If we only want to see pressure and temperature pairs below 500 meters
+deep, we can modify the constraint expression by adding a selection
+clause.</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station.cast.press,station.cast.temp&amp;station.cast.press&gt;500.0</code></pre>
+</div></div>
+<div class="paragraph"><p>In order to retrieve all of each cast that has any temperature reading
+greater than 22 degrees, use the following:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station.cast&amp;station.cast.temp&gt;22.0</code></pre>
+</div></div>
+<div class="paragraph"><p>Simple constraint expressions may be combined into compound expressions
+by appending them to one another. To retrieve all stations west of 60
+degrees West and north of the equator:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station&amp;station.lat&gt;0.0&amp;station.lon&lt;-60.0</code></pre>
+</div></div>
+<div class="paragraph"><p>As was mentioned, the logical OR can be implemented using a list of
+scalars. The following expression will select only stations taken north
+of the equator in April, May, June, or July.</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station&amp;station.lat&gt;0.0&amp;station.month={4,5,6,7}</code></pre>
+</div></div>
+<div class="paragraph"><p>If our dataset contained a field called monsoon-month, indicating the
+month in which monsoons happened that year, we could modify the last
+example search to include those months as follows:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station&amp;station.lat&gt;O.O&amp;station.month={4,5,6,7,station.monsoon-month}</code></pre>
+</div></div>
+<div class="paragraph"><p>In other words, a list can contain both values and other variables. If
+monsoon-month was itself a list of months, a search could be written as:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station&amp;station.lat&gt;0.0&amp;station.month=station.monsoon-month</code></pre>
+</div></div>
+<div class="paragraph"><p>For arrays and grids, there is a special way to select data within the
+projection clause. Suppose we want to see only the first five oxygen
+calibration points for each station. The constraint expression for this
+would be:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station.02cal[0:4]</code></pre>
+</div></div>
+<div class="paragraph"><p>By specifying a stride value, we can also select a hyperslab of the
+oxygen calibration array:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station.02cal[0:5:19]</code></pre>
+</div></div>
+<div class="paragraph"><p>This expression will return every fifth member of the 02cal array. In
+other words, the result will be a four-element array containing only the
+first, sixth, eleventh, and sixteenth members of the 02cal array. Each
+dimension of a multi-dimensional arrays may be subsampled in an
+analogous way. The return value is an array of the same number of
+dimensions as the sampled array, with each dimension size equal to the
+number of elements selected from it.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_1_2_operators_special_functions_and_data_types">2.1.2 Operators, Special Functions, and Data Types</h4>
+<div class="paragraph"><p>The constraint expression syntax defines a number of operators for each
+data type. These operators are listed in the table below.</p></div>
+<div class="paragraph"><p>All the operators defined for the scalar base types are boolean
+operators whose result depends on the specified comparison between its
+arguments.</p></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">Table 3. Constraint Expression Operators</caption>
+<col width="50%" />
+<col width="50%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Class</p></td>
+<td align="left" valign="top"><p class="table">Operators</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><strong>Simple Types</strong></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Byte, Int*, UInt*, Float*</p></td>
+<td align="left" valign="top"><p class="table">&lt; &gt; = != &#8656; &gt;=</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">String</p></td>
+<td align="left" valign="top"><p class="table">= != ~=</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">URL</p></td>
+<td align="left" valign="top"><p class="table">= != ~=</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><strong>Compound Types</strong></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Array</p></td>
+<td align="left" valign="top"><p class="table">[start:stop] [start:stride:stop]</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Structure</p></td>
+<td align="left" valign="top"><p class="table">. /</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Sequence</p></td>
+<td align="left" valign="top"><p class="table">. /</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Grid</p></td>
+<td align="left" valign="top"><p class="table">[start:stop] [start:stride:stop]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Individual fields of type constructors may be accessed using the dot (.)
+operator or the virtual file system syntax. If a structure s has two
+fields time and temperature, then those fields may be accessed using
+s.time and s.temperature or as s/time and s/temperature.</p></div>
+<div class="paragraph"><p>The ~= operator returns true when the character string on the left of
+the operator matches the regular expression on the right. See
+<a href="#Pattern_Matching_with_Constraint_Expressions">Pattern Matching with
+Constraint Expressions</a> for a discussion of regular expressions.</p></div>
+<div class="paragraph"><p>The array operator [] is used to subsample the given array. You can find
+several examples of its use in the
+<a href="/index.php/QuickStart#Peeking_at_Data">Quick Start Guide</a>.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_2_1_3_constraint_expression_functions">2.1.3 Constraint Expression Functions</h4>
+<div class="paragraph"><p>An OPeNDAP data server may define its own set of functions that may be
+used in a constraint expression. For example, the oceans.edu data server
+we’ve been imagining might define a sigma1() function to return the
+density of the water at the given temperature, salinity and pressure. A
+query like the following would return all the stations containing water
+samples whose density exceeded 1.0275g/cm3.</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station.cast&amp;sigma1(station.cast.temp,
+                     station.cast.salt,
+                     station.cast.press)&gt;27.5</code></pre>
+</div></div>
+<div class="paragraph"><p>Functions like this one are not a standard part of the OPeNDAP
+architecture, and may vary from one server to another. A user may query
+a server for a list of such functions by sending a URL with a constraint
+expression that calls the &#8220;version()&#8221; function.</p></div>
+<div class="paragraph"><p>This will return a list of functions implemented. Call any of the
+functions with no arguments to see a description of the arguments.</p></div>
+<div class="paragraph"><p>For example:</p></div>
+<div class="paragraph"><p><a href="http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?version">http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?version</a>()</p></div>
+<div class="paragraph"><p>And:</p></div>
+<div class="paragraph"><p><a href="http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?geogrid">http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?geogrid</a>()</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">When using functions, be careful to remember that a function used
+in a projection can return any value, but when used in a selection
+clause, it must either return a boolean value, or be part of a test that
+returns a boolean value.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_1_4_pattern_matching_with_constraint_expressions">2.1.4 Pattern Matching with Constraint Expressions</h4>
+<div class="paragraph"><p>There are three operators defined to compare one String data type to
+another. The = operator returns TRUE if its two input character strings
+are identical, and the != operator returns TRUE if the Strings do not
+match. A third operator, ~= is provided that returns TRUE if the String
+to the left of the operator matches the regular expression in the String
+on the right.</p></div>
+<div class="paragraph"><p>A regular expression is simply a character string containing wildcard
+characters that allow it to match patterns within a longer string. For
+example, the following constraint expression might return all the
+stations on the sample cruise at which a shark was sighted:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station&amp;station.comment~=".*shark.*"</code></pre>
+</div></div>
+<div class="paragraph"><p>Most characters in a regular expression match themselves. That is, an
+&#8220;f&#8221; in a regular expression matches an &#8220;f&#8221; in the target string.
+There are several special characters, however, that provide more
+sophisticated pattern-matching capabilities.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+.
+</dt>
+<dd>
+<p>
+  The period matches any single character except a newline.
+</p>
+</dd>
+<dt class="hdlist1">
+* + ? 
+</dt>
+<dd>
+<p>
+  These are postfix operators, which indicate to try to match the
+  preceding regular expression repetitively (as many times as possible).
+  Thus, o* matches any number of o’s. The operators differ in that o*
+  also matches zero o’s, o+ matches only a series of one or more o’s,
+  and o? matches only zero or one o.
+</p>
+</dd>
+<dt class="hdlist1">
+&#8220;[ … ]&#8221; 
+</dt>
+<dd>
+<p>
+  Define a &#8220;character set,&#8221; which begins with [ and is terminated by
+  ]. In the simplest case, the characters between the two brackets are
+  what this set can match. The expression [Ss] matches either an upper
+  or lower case s. Brackets can also contain character ranges, so [0-9]
+  matches all the numerals. If the first character within the brackets
+  is a caret ( ), the expression will only match characters that do not
+  appear in the brackets. For example, [ 0-9]* only matches character
+  strings that contain no numerals.
+</p>
+</dd>
+<dt class="hdlist1">
+^$ 
+</dt>
+<dd>
+<p>
+  These are special characters that match the empty string at the
+  beginning or end of a line.
+</p>
+</dd>
+<dt class="hdlist1">
+\| 
+</dt>
+<dd>
+<p>
+  These two characters define a logical OR between the largest possible
+  expression on either side of the operator. So, for example, the string
+  Endeavor\|Oceanus matches either Endeavor or Oceanus. The scope of the
+  OR can be contained with the grouping operators, \( and \).
+</p>
+</dd>
+<dt class="hdlist1">
+\( \) 
+</dt>
+<dd>
+<p>
+  These are used to group a series of characters into an expression, or
+  for the OR function. So, for example, \(abc\)* matches zero or more
+  repetitions of the string abc2.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>There are several more special characters and several other features of
+the characters described here, but they are beyond the scope of this
+guide. The OPeNDAP regular expression syntax is the same as that used in
+the Emacs editor. See the documentation for Emacs for a complete
+description of all the pattern- matching capabilities of regular
+expressions.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_2_1_5_optimizing_the_query">2.1.5 Optimizing the Query</h4>
+<div class="paragraph"><p>Using the tools provided by OPeNDAP, a user can build quite elaborate
+and sophisticated constraint expressions that will return precisely the
+data he or she wishes to examine. However, as the complexity of the
+constraint expression increases, so does the time necessary to process
+that expression. There are some techniques a user may user to optimize
+the evaluation of a constraint that will ease the load on the server,
+and provide faster replies to OPeNDAP dataset queries.</p></div>
+<div class="paragraph"><p>The OPeNDAP constraint expression evaluator uses a &#8220;lazy evaluation&#8221;
+algorithm. This means that the sub-clauses of the selection clause are
+evaluated in order, and parsing halts when any sub-clause returns FALSE.
+Consider a constraint expression that looks like this:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station&amp;station.cast.O2&gt;15.0&amp;station.cast.temp&gt;22.0</code></pre>
+</div></div>
+<div class="paragraph"><p>If the server encounters a station with no oxygen values over 15.0, it
+does not bother to look at the temperature records at all. The first
+sub- clause evaluates FALSE, so the second clause is never even parsed.</p></div>
+<div class="paragraph"><p>A careful user may use this feature to his or her advantage. In the
+above example, the order of the clauses does not really matter; there
+are the same number of temperature and oxygen measurements at each
+station. However, consider the following expression:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station&amp;station.cast.O2&gt;15.0&amp;station.month={3,4,5}</code></pre>
+</div></div>
+<div class="paragraph"><p>For each station there is only one month value, while there are many
+oxygen values. Passing a constraint expression like this one will force
+the server to sort through all the oxygen data for each station (which
+could be in the thousands of points), only to throw the data away when
+it finds that the month requested does not match the month value stored
+in the station data. This would be far better done with the clauses
+reversed:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>?station&amp;station.month={3,4,5}&amp;station.cast.O2&gt;15.0</code></pre>
+</div></div>
+<div class="paragraph"><p>This expression will evaluate much more quickly because unwanted
+stations may be quickly discarded by the first sub-clause of the
+selection. The server will only examine each oxygen value in the station
+if it already knows that the station might be worth keeping.</p></div>
+<div class="paragraph"><p>This sort of optimization becomes even more important when one of the
+clauses contains a URL. In general, any selection sub-clause containing
+a URL should be left to the end of the selection. This way, the OPeNDAP
+server will only be forced to go to the network for data if absolutely
+necessary to evaluate the constraint expression.</p></div>
+<div class="paragraph"><p> </p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2016-07-12 12:58:26 MDT
+</div>
+</div>
+</body>
+</html>

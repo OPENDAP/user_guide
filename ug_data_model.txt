@@ -14,7 +14,8 @@ UserGuideDataModel
 [[siteSub]]
 From OPeNDAP Documentation
 
-[[contentSub]][[jump-to-nav]]
+[[contentSub]]
+[[jump-to-nav]]
 Jump to: link:#column-one[navigation], link:#searchInput[search]
 
 [[mw-content-text]]
@@ -31,7 +32,7 @@ Contents
 *** link:#Data_Models_and_APIs[1.1.1 Data Models and APIs]
 *** link:#Translating_Data_Models[1.1.2 Translating Data Models]
 ** link:#Data_Access_Protocol[1.2 Data Access Protocol]
-** link:#Data_representation[1.3 Data representation]
+** link:#Data_Representation[1.3 Data Representation]
 *** link:#Base_Types[1.3.1 Base Types]
 *** link:#Constructor_Types[1.3.2 Constructor Types]
 **** link:#Array[1.3.2.1 Array]
@@ -41,18 +42,22 @@ Contents
 *** link:#External_Data_Representation[1.3.3 External Data
 Representation]
 
-[[data-and-data-models]]
-[[Data_and_Data_Models]]1 Data and Data Models
-----------------------------------------------
+// [[data-and-data-models]]
+// [[Data_and_Data_Models]]
+== 1 Data and Data Models ==
+// ----------------------------------------------
+// reformatted title lb 6/28/16
 
 Basic to the operation of OPeNDAP is its data model, and the set of
 messages that define the communication between client and server. This
 chapter presents the data model, and the next
 link:/index.php/UserGuideOPeNDAPMessages[presents the messages].
 
-[[data-models]]
-[[Data_Models]]1.1 Data Models
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// [[data-models]]
+// [[Data_Models]]
+=== 1.1 Data Models ===
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// reformatted lb 6/28/16
 
 Any data set is made up of data and a data model. The data model defines
 the type and arrangement of data values, and may be thought of as an
@@ -99,9 +104,9 @@ Dataset {
 } xbt-station;
 ....
 
-Example Data Description of XBT Station
+.An Example Data Description of XBT Station
 
- +
+// + deleted lb 6/28/16
 The above example describes a data set that contains all the data from a
 single XBT. The data set is called xbt-station, and contains
 floating-point representations of the latitude and longitude of the
@@ -131,9 +136,9 @@ Dataset {
 } xbt-station;
 ....
 
-Example Data Description of XBT Station Using Structures
+.An Example Data Description of XBT Station Using Structures
 
- +
+// + deleted lb 6/28/16
 
 In this example, several of the data have been grouped, implying a
 relation between them. The nature of the relationship is not defined,
@@ -168,9 +173,9 @@ Dataset {
 } xbt-station;
 ....
 
-Example Data Description of XBT Station Using Arrays
+.An Example Data Description of XBT Station Using Arrays
 
- +
+// + deleted lb 6/28/16
 The relationship between the depth and temperature variables is no
 longer quite as clear, but, depending on what sort of processing is
 intended, this may not be that important a loss.
@@ -190,11 +195,13 @@ in later discussions of the details of the OPeNDAP Data Access Protocol.
 The precise details of the DDS syntax are described in
 link:/index.php/UserGuideOPeNDAPMessages#Dataset_Descriptor_Structure[DDS].
 
- +
+// + deleted lb 6/28/16
 
-[[data-models-and-apis]]
-[[Data_Models_and_APIs]]1.1.1 Data Models and APIs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[data-models-and-apis]]
+// [[Data_Models_and_APIs]]
+==== 1.1.1 Data Models and APIs ====
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted lb 6/28/16
 
 A data access Application Program Interface (API) is a library of
 functions designed to be used by a computer program to read, write, and
@@ -208,11 +215,13 @@ use constitute the data model represented by that API. (Or data
 models—there is no reason an API cannot accommodate several different
 models.)
 
- +
+// + deleted lb 6/28/16
 
-[[translating-data-models]]
-[[Translating_Data_Models]]1.1.2 Translating Data Models
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[translating-data-models]]
+// [[Translating_Data_Models]]
+==== 1.1.2 Translating Data Models ====
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted lb 6/28/16
 
 The problem of data model translation is central to the implementation
 of OPeNDAP. With an effective data translator, an OPeNDAP program
@@ -256,9 +265,9 @@ Dataset {
 } cruise;
 ....
 
-Example Data Description of XBT Cruise
+.An Example Data Description of XBT Cruise
 
- +
+// + deleted lb 6/28/16
 Note that each entry in the cruise sequence is composed of a tuple of
 data values (one of which is itself a sequence). Were we to arrange
 these data values as a table, they might look like this:
@@ -299,9 +308,11 @@ this format is not a function likely to be accommodated by a program
 that uses the netCDF API, even though it is theoretically possible to
 implement.
 
-[[data-access-protocol]]
-[[Data_Access_Protocol]]1.2 Data Access Protocol
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// [[data-access-protocol]]
+// [[Data_Access_Protocol]]
+=== 1.2 Data Access Protocol ===
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// reformatted lb 6/28/16
 
 The OPeNDAP Data Access Protocol (DAP) defines how an OPeNDAP client and
 an OPeNDAP server communicate with one another to pass data from the
@@ -314,7 +325,7 @@ client.
 
 The DAP consists of several components:
 
- +
+// + deleted lb 6/28/16
 
 1.  An ``intermediate data representation'' for data sets. This is used
 to transport data from the remote source to the client. The data types
@@ -340,9 +351,11 @@ Messages], as are the steps of the procedure. The actual details of the
 software used to implement these formats and procedures is a subject of
 the documentation of the respective software.
 
-[[data-representation]]
-[[Data_representation]]1.3 Data representation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// [[data-representation]]
+// [[Data_representation]]
+=== 1.3 Data Representation ===
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// reformatted lb 6/28/16
 
 There are many popular data storage formats, and many more than that in
 use. These formats are optimized (it they are optimized at all) for data
@@ -364,19 +377,19 @@ any data storage format.
 
 The elements of the OPeNDAP data access protocol are:
 
- +
+// + deleted lb 6/28/16
 
-Base Types ::
+Base Types::
   These are the simple data types, like integers, floating point
   numbers, strings, and character data.
-Constructor ::
+Constructor::
   Types These are the more complex data types that can be constructed
   from the simple base types. Examples are structures, sequences,
   arrays, and grids.
-Operators ::
+Operators::
   Access to data can be operationally defined with operators defined on
   the various data types.
- External Data Representation ::
+ External Data Representation::
   In order to transmit the data across the Internet, there needs to be a
   machine-independent definition of what the various data types look
   like. For example, the client and server need to agree on the most
@@ -385,9 +398,11 @@ Operators ::
 These elements are defined in greater detail in the sections that
 follow.
 
-[[base-types]]
-[[Base_Types]]1.3.1 Base Types
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[base-types]]
+// [[Base_Types]]
+==== 1.3.1 Base Types ====
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted lb 6/28/16
 
 The OPeNDAP data model uses the concepts of variables and operators.
 Each data set is defined by a set of one or more variables, and each
@@ -408,21 +423,20 @@ possible to access parts of that structure using the DAP. Base type
 variables in the DAP have two predefined attributes (or
 characteristics): name, and type. They are defined as follows:
 
- +
+// + deleted lb 6/28/16
+// deleted 4.25 '___' lb 6/28/16
+// deleted one '-' to see if can get out of the delimited block lb
+// 6/29/16
 
-___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
---
-Name ::
+Name::
   A unique identifier that can be used to reference the part of the
   dataset associated with this variable.
 
- +
-
-Type ::
+// + deleted lb 6/28/16
+Type::
   The data type contained by the variable. This can be one of Byte,
   Int32, UInt32, Float64, String, and URL. Where:
-
-___________________________________________________________________________________________________________________________
+// __________________________________________________________________________________________
 * Byte is a single byte of data. This is the same as unsigned char in
 ANSI C.
 * Int16 is a 16 bit two’s complement integer—it is synonymous with long
@@ -435,7 +449,7 @@ in ANSI C when that type is implemented as 32 bits.
 * Float64 is the IEEE 64 bit floating point data type.
 * String is a sequence of bytes terminated by a null character.
 * Url is a string containing an OPeNDAP URL.
-___________________________________________________________________________________________________________________________
+// __________________________________________________________________________________________
 
 The declaration in a
 link:/index.php/UserGuideOPeNDAPMessages#Data_Descriptor_Structure[DDS]
@@ -446,10 +460,12 @@ a month variable to be a 32-bit integer, one would type:
 ....
 Int32 month;
 ....
+// [[constructor-types]]
+// [[Constructor_Types]]
+==== 1.3.2 Constructor Types ====
 
-[[constructor-types]]
-[[Constructor_Types]]1.3.2 Constructor Types
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted lb 6/28/16
 
 Constructor types, such as arrays and structures, describe the grouping
 of one or more variables within a dataset. These classes are used to
@@ -464,9 +480,12 @@ There are six classes of type constructor variables defined by the
 OPeNDAP DAP: arrays, structures, sequences, functions, and grids. The
 types are defined as:
 
-[[array]]
-[[Array]]1.3.2.1 Array
-++++++++++++++++++++++
+// [[array]]
+// [[Array]]
+===== 1.3.2.1 Array =====
+
+// ++++++++++++++++++++++
+// reformatted lb 6/28/16
 
 An array is a one dimensional indexed data structure as defined by ANSI
 C. Multidimensional arrays are defined as arrays of arrays. An array may
@@ -479,7 +498,7 @@ A chunk of an array may be specified with subscript ranges; the array
 temp[2:10][3:4] indicates an array of nine rows and two columns whose
 values have been lifted intact from the larger temp array.
 
- +
+// + deleted 6/28/16 lb
 A _hyperslab_ may be selected from an array with a _stride_ value. The
 array represented by temp[2:2:10][3:4] would have only five rows; the
 middle value in the first subscript range indicates that the output
@@ -502,9 +521,12 @@ a name. The previous declaration could be written:
 Float64 data[height = 5][width = 6];
 ....
 
-[[structure]]
-[[Structure]]1.3.2.2 Structure
-++++++++++++++++++++++++++++++
+// [[structure]]
+// [[Structure]]
+===== 1.3.2.2 Structure =====
+// ++++++++++++++++++++++++++++++
+// reformatted lb 6/28/16
+// title style not working lb 6/28/16
 
 A Structure is a class that may contain several variables of different
 classes. However, though it implies that its member variables are
@@ -529,11 +551,13 @@ Use the *.* operator to refer to members of a Structure. For example,
 measurement.month would identify the integer member of the Structure
 defined in the above declaration.
 
- +
+// + deleted lb 6/28/16
 
-[[sequence]]
-[[Sequence]]1.3.2.3 Sequence
-++++++++++++++++++++++++++++
+// [[sequence]]
+// [[Sequence]]
+===== 1.3.2.3 Sequence =====
+// ++++++++++++++++++++++++++++
+// reformatted lb 6/28/16
 
 A Sequence is an ordered set of variables each of which may have several
 values. The variables may be of different classes. Each element of a
@@ -542,7 +566,8 @@ sort of like an ordered set of Structures.
 
 Thus a Sequence can be represented as:
 
-[cols=",,,",]
+[cols="1,,,",]
+.A Sequence
 |======================
 |s~00~ |s~01~ |… |s~0n~
 |s~10~ |s~11~ |… |s~1n~
@@ -553,7 +578,7 @@ Thus a Sequence can be represented as:
 |s~i0~ |s~i1~ |… |s~in~
 |======================
 
- +
+// + deleted lb 6/28/16
 Every instance of Sequence S has the same number, order, and class of
 its member variables. A Sequence implies that each of the variables is
 related to each other in some logical way. For example, a Sequence
@@ -586,9 +611,11 @@ data you get from successive reads of data from a file. The data values
 available at any point are the last values read from the file. But you
 don’t have immediate access to any of the other values in that file.
 
-[[grid]]
-[[Grid]]1.3.2.4 Grid
-++++++++++++++++++++
+// [[grid]]
+// [[Grid]]
+===== 1.3.2.4 Grid =====
+// ++++++++++++++++++++
+// reformatted lb 6/28/16
 
 A Grid is an association of an N dimensional array with N named vectors
 (one-dimensional arrays), each of which has the same number of elements
@@ -610,13 +637,14 @@ _not_ regular, as in /index.php/File:Grid.gif[figure 6.3.2] then an
 array will be inadequate. To adequately describe the positions of each
 of the points in the grid, the precise location of each column and row
 must be described.
+// /index.php/File:Grid.gif[image:/images/Grid.gif[actual
+// size,width=282,height=277]]
+// trying a new link to figure lb 6/29/16
 
-/index.php/File:Grid.gif[image:/images/6/64/Grid.gif[actual
-size,width=282,height=277]]
+.An Irregular Grid of Data
+image::Grid.gif[An Irregular Grid of Data., 282, 277, align="center"]
 
-An Irregular Grid of Data.
-
- +
+// + deleted lb 6/28/16
 The secondary vectors in the Grid data type provide a solution to this
 problem. Each member of these vectors associates a value for all the
 data points in the corresponding rank of the array. The value can
@@ -630,7 +658,6 @@ type that could accommodate a structure like this:
       Float64 distance[6];
       Float64 depth[5];
    } measurement;
- 
 ....
 
 In the above example, an vector called depth contains five values
@@ -653,9 +680,12 @@ column of the grid.
    } measurement;
 ....
 
-[[external-data-representation]]
-[[External_Data_Representation]]1.3.3 External Data Representation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[external-data-representation]]
+// [[External_Data_Representation]]
+==== 1.3.3 External Data Representation ====
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted lb 6/29/16
 
 Now that you know what the data types are, the next step is to define
 their external representation. The DAP defines an external
@@ -671,11 +701,13 @@ external representation of all of the base type variables. The table
 below shows the XDR types used to represent the various base type
 variables.
 
- +
+// + deleted lb 6/28/16
 
-The XDR data types corresponding to OPeNDAP base-type variables.
+// The XDR data types corresponding to OPeNDAP base-type variables.
+// made above into table title lb 7/12/116
 
 [cols=",",options="header",]
+.The XDR Data Types Corresponding to OPeNDAP Base-Type Variables
 |==========================
 |Base Type |XDR Type
 |Byte |xdr byte
@@ -708,16 +740,16 @@ What remains is to define the external representation of the constructor
 type variables. For each of the six constructor types these definitions
 are:
 
-Array ::
+Array::
   An Array is sent using the xdr_array function. This means that an
   Array of 100 Int32s is sent as a single block of 100 xdr longs, not
   100 separate ``xdr long''s.
-Structure ::
+Structure::
   A Structure is sent by encoding each field in the order those fields
   are declared in the
   link:/index.php/UserGuideOPeNDAPMessages#Data_Descriptor_Structure[DDS]
   and transmitting the resulting block of bytes.
-Sequence ::
+Sequence::
   A Sequence is transmitted by encoding each item in the sequence as if
   it were a Structure, and ending each such structure after the other,
   in the order of their occurrence in the sequence. The entire sequence
@@ -725,7 +757,7 @@ Sequence ::
   constraint expression is supplied then the entire sequence is sent.
   However, if a constraint expression is given all the records in the
   sequence that satisfy the expression are sent.
-Grid ::
+Grid::
   A Grid is encoded as if it were a Structure (one component after the
   other, in the order of their declaration).
 
@@ -734,144 +766,3 @@ may be compressed, depending on the configuration of the respective
 machines. The compression is done using the gzip program. Only the data
 transmission itself will be affected by this; the transmission of the
 ancillary data is not compressed.
-
-Retrieved from
-"http://docs.opendap.org/index.php?title=UserGuideDataModel&oldid=7581"
-
-[[catlinks]][[column-one]]
-[[navigation-menu]]
-Navigation menu
-~~~~~~~~~~~~~~~
-
-[[p-cactions]]
-[[views]]
-Views
-^^^^^
-
-* [[ca-nstab-main]]
-+
-link:/index.php/UserGuideDataModel[Page]
-* [[ca-talk]]
-+
-/index.php?title=Talk:UserGuideDataModel&action=edit&redlink=1[Discussion]
-* [[ca-viewsource]]
-+
-link:/index.php?title=UserGuideDataModel&action=edit[View source]
-* [[ca-history]]
-+
-link:/index.php?title=UserGuideDataModel&action=history[History]
-
-[[p-personal]]
-[[personal-tools]]
-Personal tools
-^^^^^^^^^^^^^^
-
-* [[pt-login]]
-+
-/index.php?title=Special:UserLogin&returnto=UserGuideDataModel[Log in]
-
-[[p-logo]]
-link:/index.php/Home[]
-
-[[p-navigation]]
-[[navigation]]
-Navigation
-^^^^^^^^^^
-
-* [[n-Home]]
-+
-link:/index.php/Home[Home]
-* [[n-Documentation]]
-+
-link:/index.php/Documentation[Documentation]
-* [[n-Developer-Info]]
-+
-link:/index.php/Developer_Info[Developer Info]
-* [[n-Projects]]
-+
-link:/index.php/Development[Projects]
-* [[n-OPULS.2FDAP4]]
-+
-link:/index.php/OPULS_Development[OPULS/DAP4]
-* [[n-Working-Groups]]
-+
-link:/index.php/Working_Groups[Working Groups]
-* [[n-Meetings]]
-+
-link:/index.php/Meetings[Meetings]
-* [[n-Jira]]
-+
-https://opendap.atlassian.net/[Jira]
-* [[n-Git.28hub.29]]
-+
-https://github.com/opendap[Git(hub)]
-* [[n-Document-Templates]]
-+
-link:/index.php/Document_Templates[Document Templates]
-* [[n-help]]
-+
-/index.php/Help:Contents[Help]
-* [[n-Trac-.28retired.29]]
-+
-https://scm.opendap.org/trac/[Trac (retired)]
-* [[n-Subversion-.28retired.29]]
-+
-https://scm.opendap.org/svn/[Subversion (retired)]
-
-[[p-search]]
-[[search]]
-Search
-^^^^^^
-
-[[searchBody]]
- 
-
-[[p-tb]]
-[[tools]]
-Tools
-^^^^^
-
-* [[t-whatlinkshere]]
-+
-/index.php/Special:WhatLinksHere/UserGuideDataModel[What links here]
-* [[t-recentchangeslinked]]
-+
-/index.php/Special:RecentChangesLinked/UserGuideDataModel[Related
-changes]
-* [[t-specialpages]]
-+
-/index.php/Special:SpecialPages[Special pages]
-* [[t-print]]
-+
-link:/index.php?title=UserGuideDataModel&printable=yes[Printable
-version]
-* [[t-permalink]]
-+
-link:/index.php?title=UserGuideDataModel&oldid=7581[Permanent link]
-* [[t-info]]
-+
-link:/index.php?title=UserGuideDataModel&action=info[Page information]
-
-[[footer]]
-[[f-poweredbyico]]
-link://www.mediawiki.org/[image:/skins/common/images/poweredby_mediawiki_88x31.png[Powered
-by MediaWiki,width=88,height=31]]
-
-* [[lastmod]]
-+
-This page was last modified on 13 March 2012, at 18:27.
-* [[viewcount]]
-+
-This page has been accessed 7,072 times.
-* [[privacy]]
-+
-/index.php/OPeNDAP_Documentation:Privacy_policy[Privacy policy]
-* [[about]]
-+
-/index.php/OPeNDAP_Documentation:About[About OPeNDAP Documentation]
-* [[disclaimer]]
-+
-/index.php/OPeNDAP_Documentation:General_disclaimer[Disclaimers]
-
---
-___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________

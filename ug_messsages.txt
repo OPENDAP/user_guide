@@ -14,7 +14,8 @@ UserGuideOPeNDAPMessages
 [[siteSub]]
 From OPeNDAP Documentation
 
-[[contentSub]][[jump-to-nav]]
+[[contentSub]]
+[[jump-to-nav]]
 Jump to: link:#column-one[navigation], link:#searchInput[search]
 
 [[mw-content-text]]
@@ -27,7 +28,7 @@ Contents
 ~~~~~~~~
 
 * link:#The_OPeNDAP_Messages[1 The OPeNDAP Messages]
-** link:#Ancillary_data[1.1 Ancillary data]
+** link:#Ancillary_Data[1.1 Ancillary Data]
 *** link:#Dataset_Descriptor_Structure[1.1.1 Dataset Descriptor
 Structure]
 *** link:#Dataset_Attribute_Structure[1.1.2 Dataset Attribute Structure]
@@ -43,7 +44,7 @@ Structure]
 *** link:#DDX[1.3.6 DDX]
 *** link:#THREDDS[1.3.7 THREDDS]
 * link:#Constraint_Expressions[2 Constraint Expressions]
-** #Selecting_Data:_Using_Constraint_Expressions[2.1 Selecting Data:
+** link:#Selecting_Data:_Using_Constraint_Expressions[2.1 Selecting Data:
 Using Constraint Expressions]
 *** link:#Constraint_Expression_Syntax[2.1.1 Constraint Expression
 Syntax]
@@ -57,9 +58,11 @@ Functions]
 Matching with Constraint Expressions]
 *** link:#Optimizing_the_Query[2.1.5 Optimizing the Query]
 
-[[the-opendap-messages]]
-[[The_OPeNDAP_Messages]]1 The OPeNDAP Messages
-----------------------------------------------
+// [[the-opendap-messages]]
+// [[The_OPeNDAP_Messages]]1 The OPeNDAP Messages
+// ----------------------------------------------
+// reformatted title lb 7/11/16
+== 1 The OPeNDAP Messages ==
 
 An OPeNDAP server is in the business of making replies to queries for
 data and other services. The queries come in the form of specially
@@ -79,11 +82,12 @@ The replies come in three categories: Ancillary data, Data, and the
 other services. The following sections cover each of them, beginning
 with the ancillary data messages.
 
- +
-
-[[ancillary-data]]
-[[Ancillary_data]]1.1 Ancillary data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// + deleted lb 7/11/16
+// [[ancillary-data]]
+// [[Ancillary_data]]1.1 Ancillary data
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// reformatted title lb 7/11/16
+=== 1.1 Ancillary Data ===
 
 In order to use some data set, a user must have some information at his
 or her disposal that is not strictly included in the data itself. This
@@ -96,11 +100,12 @@ structure and the relationships between its variables, and the Dataset
 Attribute Structure (DAS) provides information about the variables
 themselves. Both structures are described in the following sections.
 
- +
-
-[[dataset-descriptor-structure]]
-[[Dataset_Descriptor_Structure]]1.1.1 Dataset Descriptor Structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// + deleted lb 7/11/16
+// [[dataset-descriptor-structure]]
+// [[Dataset_Descriptor_Structure]]1.1.1 Dataset Descriptor Structure
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 1.1.1 Dataset Descriptor Structure ====
 
 In order to translate data from one data model into another, OPeNDAP
 must have some knowledge about the types of the variables, and their
@@ -128,9 +133,11 @@ the table below. (Note that the Dataset keyword has the same syntactic
 function as Structure but is used for the specific job of enclosing the
 entire data set even when it does not technically need an enclosing
 element.)
+// reformatted table to include title lb 7/12/16
 
-[cols=",",options="header",]
-|=====================================================================
+.Dataset Descriptor Structure Syntax
+[cols="1,4",options="header"]
+|=============================================
 |"data set |Dataset \{ declarations } name;
 |"declaration |List declaration
 | |``base-type'' var;
@@ -148,9 +155,7 @@ element.)
 |``array-decl'' |[integer ]
 | |[``name'' = integer]
 |``name'' |User-chosen name of data set, variable, or array dimension.
-|=====================================================================
-
-Dataset Descriptor Structure Syntax
+|=============================================
 
 A DDS is returned in response to a request for the DDS, and it is also
 part of the data return. The request URL for the DDS is composed of the
@@ -181,14 +186,14 @@ explanation of the information implied by the data model.)
   } station;
 } data;
 ....
+===== Example Dataset Descriptor Entry =====
 
-Example Dataset Descriptor Entry.
-
- +
-
-[[dataset-attribute-structure]]
-[[Dataset_Attribute_Structure]]1.1.2 Dataset Attribute Structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// + deleted lb 7/11/16
+// [[dataset-attribute-structure]]
+// [[Dataset_Attribute_Structure]]1.1.2 Dataset Attribute Structure
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 1.1.2 Dataset Attribute Structure ====
 
 The ``Dataset Attribute Structure'' (DAS) is used to store attributes
 for variables in the dataset. An attribute is any piece of information
@@ -215,8 +220,11 @@ An attribute may be scalar or vector. In the latter case the values of
 the vector are separated by commas (,) in the textual representation of
 the DAS.
 
-[cols=",",options="header",]
-|=====================================================
+// added table title lb 7/12/16
+.Dataset Attribute Structure Syntax
+// added column descriptors lb 7/12/16
+[cols="1,2",options="header"]
+|============================================
 |``DAS'' |Attributes ``\{var-attr-list}''
 |``var-attr-list'' |``var-attr''
 | |``var-attr-list'' ``var-attr''
@@ -243,9 +251,7 @@ the DAS.
 |``variable'' |user-chosen variable name
 |``attribute'' |user-chosen attribute name
 |``container'' |user-chosen container name
-|=====================================================
-
-Dataset Attribute Structure Syntax
+|================================================
 
 A DAS is returned in response to a request for the DAS. Unlike the DDS,
 it is not part of the data return. The request URL for the DAS is
@@ -253,13 +259,15 @@ composed of the root URL, with the suffix ``.das''. For example, if a
 data set is located at http:/tests.opendap.org/data/mydata.dat then
 you’ll find the DAS at http:/tests.opendap.org/data/mydata.dat.das
 
- +
+// + deleted lb 7/11/16
 
- +
+// + deleted lb 7/11/16
 
-[[containers]]
-[[Containers]]1.1.2.1 Containers
-++++++++++++++++++++++++++++++++
+// [[containers]]
+// [[Containers]]1.1.2.1 Containers
+// ++++++++++++++++++++++++++++++++
+// reformatted title lb 7/11/16
+===== 1.1.2.1 Containers =====
 
 An attribute can contain another attribute, or a set of attributes. This
 is roughly comparable to the way compound variables can contain other
@@ -282,9 +290,9 @@ Consider the following example:
 }
 ....
 
-An Example of Attribute Containers
+===== An Example of Attribute Containers =====
 
- +
+// + deleted lb 7/11/16
 
 Here, the attribute Bill.LastName would be associated with the string
 ``Evans'', and Bill.Age with the number 53. However, the attribute
@@ -303,11 +311,13 @@ time. The Sequence attributes might be the time and location of the
 measurements, and the individual variables might have attributes
 describing the method or accuracy of that measurement.
 
- +
+// + deleted lb 7/11/16
 
-[[global-attributes]]
-[[Global_Attributes]]1.1.2.2 Global Attributes
-++++++++++++++++++++++++++++++++++++++++++++++
+// [[global-attributes]]
+// [[Global_Attributes]]1.1.2.2 Global Attributes
+// ++++++++++++++++++++++++++++++++++++++++++++++
+// reformatted title lb 7/11/16
+===== 1.1.2.2 Global Attributes =====
 
 A ``global attribute'' is not bound to a particular identifier in a
 dataset; these attributes are stored in one or more containers with the
@@ -334,9 +344,9 @@ data was collected. Here’s an example:
 }
 ....
 
-An Example of Global Attributes
+===== An Example of Global Attributes =====
 
- +
+// + deleted lb 7/11/16
 Global attributes can be used to define a certain view of a dataset. For
 example, consider the following DAS:
 
@@ -368,9 +378,9 @@ example, consider the following DAS:
 }
 ....
 
-An Example of Global Attributes In Use
+===== An Example of Global Attributes In Use =====
 
- +
+// + deleted lb 7/11/16
 Here, a dataset contains temperature and salinity measurements. To aid
 processing of this dataset by some OPeNDAP client, long names are
 supplied for the Temp and Salt variables. However, a different client
@@ -384,9 +394,11 @@ layer of attributes to make OPeNDAP datasets conform to several
 different dataset naming standards. This becomes significant when trying
 to compile an OPeNDAP dataset database.
 
-[[data-transmission]]
-[[Data_Transmission]]1.2 Data Transmission
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// [[data-transmission]]
+// [[Data_Transmission]]1.2 Data Transmission
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Reformatted title lb 7/11/16
+=== 1.2 Data Transmission ===
 
 An OPeNDAP server returns data to a client in response to a request URL
 composed of the root URL, with the suffix ``.dods''. For example, if a
@@ -441,28 +453,31 @@ will be included in the DataDDS return, ahead of the encoded array of
 For more information about sampling OPeNDAP data sets, see the section
 below about link:#Constraint_Expressions[constraint expressions].
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________
-NOTE:A request for data from an OPeNDAP client will
-
+// deleted 3.5 underlines here lb 7/11/16
+[NOTE]
+A request for data from an OPeNDAP client will
 generally make three different service requests, for data attributes
 (DAS), data descriptors (DDS), and for data. The prepackaged OPeNDAP
 clients do this for you, so you may not be aware that three requests
-
 are made for each URL.
-______________________________________________________________________________________________________________________________________________________________________________________________________________
+// deleted 3.5 underlines here lb 7/11/16
 
-[[other-services]]
-[[Other_Services]]1.3 Other Services
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// [[other-services]]
+// [[Other_Services]]1.3 Other Services
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// reformatted title lb 7/11/16
+=== 1.3 Other Services ===
 
 In addition to the link:#Data_Transmission[data],
 link:#Dataset_Descriptor_Structure[DDS], and
 link:#Dataset_Attribute_Structure[DAS], an OPeNDAP server _may_ provide
 any or all of the services described in the sections that follow.
 
-[[ascii-service]]
-[[ASCII_Service]]1.3.1 ASCII Service
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[ascii-service]]
+// [[ASCII_Service]]1.3.1 ASCII Service
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 1.3.1 ASCII Service ====
 
 This service returns an ASCII representation of the requested data. This
 can make the data available to a wide variety of standard web browsers.
@@ -480,9 +495,11 @@ message.
 The link:/index.php/QuickStart[Quick Start Guide] contains many examples
 of the ASCII response.
 
-[[info-service]]
-[[Info_Service]]1.3.2 Info Service
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[info-service]]
+// [[Info_Service]]1.3.2 Info Service
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 1.3.2 Info Service ====
 
 The Info service formats information from a data set’s DAS and DDS into
 a single HTML document suitable for viewing in a web browser. The
@@ -495,9 +512,11 @@ activated by a URL ending in .info.
 Click http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.info to see
 an Info response.
 
-[[www-interface-service]]
-[[WWW_Interface_Service]]1.3.3 WWW Interface Service
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[www-interface-service]]
+// [[WWW_Interface_Service]]1.3.3 WWW Interface Service
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 1.3.3 WWW Interface Service ====
 
 The WWW service is another way to browse a server’s data interactively.
 You can use this either to look at an individual data file, or a
@@ -510,35 +529,49 @@ link:#Constraint_Expressions[constraint expression]). You can copy the
 resulting URL into another browser, or use one of the buttons on the
 form to download data.
 
-/index.php/File:Reynolds_ifh.png[image:/images/0/05/Reynolds_ifh.png[actual
-size,width=714,height=630]]
+// /index.php/File:Reynolds_ifh.png[image:/images/0/05/Reynolds_ifh.png[actual
+// size,width=714,height=630]]
+// new figure input lb 7/11/16
+
+.OPeNDAP Server Dataset Access Form
+image::Reynolds_ifh.png[OPeNDAP Server Dataset Access Form,714,630,align="center"]
 
 If a server receives a URL that either ends in a slash (/) or
 contents.html, it returns a web page that looks like a standard web
 browser’s directory view.
 
-/index.php/File:Test.oopendap.org_directory_view.png[image:/images/9/9e/Test.oopendap.org_directory_view.png[actual
-size,width=714,height=370]]
+//
+// /index.php/File:Test.oopendap.org_directory_view.png[image:/
+//images/9/9e/Test.oopenda//
+// p.org_directory_view.png[actual
+// size,width=714,height=370]]
+// new figure input lb 7/11/16
+.A Web Page that Looks Like a Standard Web Browser's Directory View
+image::Test.oopendap.org_directory_view.png[OPeNDAP Hyrax: Contents of/data/nc,714,370,align="center"]
 
 Each link in the directory view opens up the WWW service version of that
 data.
 
- +
+// + deleted lb 7/11/16
 The link:/index.php/QuickStart#An_Easier_Way[Quick Start Guide] contains
 more information about browsing OPeNDAP data interactively.
 
-[[version-service]]
-[[Version_Service]]1.3.4 Version Service
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[version-service]]
+// [[Version_Service]]1.3.4 Version Service
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 1.3.4 Version Service ====
 
 This service returns the version information for the OPeNDAP server
 software running on the server. This service is triggered by a URL
 ending with .ver. The return is a short text message containing the
 relevant version numbers.
 
-[[soap]]
-[[SOAP]]1.3.5 SOAP
-^^^^^^^^^^^^^^^^^^
+// [[soap]]
+// [[SOAP]]1.3.5 SOAP
+// ^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 1.3.5 SOAP ====
 
 The OPeNDAP server provided by the OPeNDAP group contains an
 experimental SOAP service, allowing users to make requests and get
@@ -546,9 +579,11 @@ responses by exchanging SOAP XML documents. This is an experimental
 service, and if you’re writing an application depending on it, it’s best
 to contact the OPeNDAP developer team.
 
-[[ddx]]
-[[DDX]]1.3.6 DDX
-^^^^^^^^^^^^^^^^
+// [[ddx]]
+// [[DDX]]1.3.6 DDX
+// ^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 1.3.6 DDX ====
 
 The DDX is an XML version of the DAS and DDS, combined. It is triggered
 by a URL ending with .ddx. You can find the schema for the DDX at
@@ -565,9 +600,11 @@ DDX will describe only the data actually returned.
 The DDX and the DataDDX (containing the dataBLOB) are the nucleus of
 what will become version 4 of the DAP.
 
-[[thredds]]
-[[THREDDS]]1.3.7 THREDDS
-^^^^^^^^^^^^^^^^^^^^^^^^
+// [[thredds]]
+// [[THREDDS]]1.3.7 THREDDS
+// ^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 1.3.7 THREDDS ====
 
 Some OPeNDAP servers (including link:/index.php/Hyrax[Hyrax], the server
 supplied by the OPeNDAP group) can make sensible replies to requests for
@@ -577,18 +614,22 @@ For more information about THREDDS, see the
 http://www.unidata.ucar.edu/projects/THREDDS/tech/TDS.html[THREDDS] home
 page.
 
-[[constraint-expressions]]
-[[Constraint_Expressions]]2 Constraint Expressions
---------------------------------------------------
+// [[constraint-expressions]]
+// [[Constraint_Expressions]]2 Constraint Expressions
+// --------------------------------------------------
+// reformatted title lb 7/11/16
+== 2 Constraint Expressions ==
 
 The OPeNDAP software is not only a data transport mechanism. Using
 OPeNDAP, you can subsample the data you are looking at. That is, you can
 request an entire data file, or just a small piece of it.
 
-[[selecting-data-using-constraint-expressions]]
-[[Selecting_Data:_Using_Constraint_Expressions]]2.1 Selecting Data:
-Using Constraint Expressions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// [[selecting-data-using-constraint-expressions]]
+// [[Selecting_Data:_Using_Constraint_Expressions]]2.1 Selecting Data:
+// Using Constraint Expressions
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// reformatted title lb 7/11/16
+=== 2.1 Selecting Data: Using Constraint Expressions ===
 
 The URL such as this one:
 
@@ -608,9 +649,11 @@ selections. This can vastly reduce the amount of data a program needs to
 process, and reduce the network load of transmitting that data to the
 client.
 
-[[constraint-expression-syntax]]
-[[Constraint_Expression_Syntax]]2.1.1 Constraint Expression Syntax
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[constraint-expression-syntax]]
+// [[Constraint_Expression_Syntax]]2.1.1 Constraint Expression Syntax
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 2.1.1 Constraint Expression Syntax ====
 
 A constraint expression is appended to the target URL following a
 question mark, as in the following examples:
@@ -627,15 +670,17 @@ http://test.opendap.org/dap/data/ff/gsodock.dat.asc?Time,Sea_Temp&Time%3C35234.1
 
 http://test.opendap.org/dap/data/ff/gsodock.dat.asc?Time,Sea_Temp&Time%3C35234.1&Sea_Temp%3C18[…/ff/gsodock.dat?Time,Sea_Temp&Time%3C35234.1&Sea_Temp%3C18]
 
-__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-CAUTION: An OPeNDAP data set can contain an extraordinary amount of
+// deleted 3.25 lines of underlines here lb 7/11/16
+// reformatted "caution" paragraph lb 7/11/16
+[CAUTION]
+An OPeNDAP data set can contain an extraordinary amount of
 data. You almost certainly do _not_ want to make an unconstrained
 request to a data set without knowing something about it. Familiarize
 yourself with the DDS and DAS before asking for data; it can prevent
 overload.
-__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+// deleted 3.25 lines of underlines here lb 7/11/16
 
- +
+// + deleted lb 7/11/16
 A constraint expression consists of two parts: a projection and a
 selection, separated by an ampersand (&). Either part may contain
 several sub-expressions. Either part may be present, or both.
@@ -683,7 +728,7 @@ appear at the beginning of each selection clause, no matter what. This
 means that a constraint expression that contains no projection clause
 must still have an & in front of the first selection clause.
 
- +
+// + deleted lb 7/11/16
 There is no limit on the number of selection clauses that can be
 combined to create a compound constraint expression. Data that produces
 a true (non-zero) value for the entire selection expression will be
@@ -691,21 +736,23 @@ included in the data returned to the client by the server. If only a
 part of some data structure, such as a Sequence, satisfies the selection
 criteria, then only that part will be returned.
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-NOTE: Due to the differences in data model paradigms,
-
+// deleted 3 lines of underlines lb 7/11/16
+// reformatted "note" lb 7/11/16
+[NOTE]
+Due to the differences in data model paradigms, 
 selection is not implemented for the OPeNDAP array data types, such as
 Grid or Array. However, many OPeNDAP servers implement selection
 functions you can use for the same effect. (See
 link:#Constraint_Expression_Functions[Constraint Expression Functions]
-
 below for more about functions.)
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+// deleted 3 lines of underlines lb 7/11/16
 
-[[simple-constraint-expression-examples]]
-[[Simple_Constraint_Expression_Examples]]2.1.1.1 Simple Constraint
-Expression Examples
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// [[simple-constraint-expression-examples]]
+// [[Simple_Constraint_Expression_Examples]]
+// 2.1.1.1 Simple Constraint Expression Examples
+// deleted line of + signs lb 7/11/16
+// reformatted title lb 7/11/16
+===== 2.1.1.1 Simple Constraint Expression Examples =====
 
 Consider the DDS below. This is the description of a dataset containing
 station data including temperature, oxygen, and salinity. Each station
@@ -731,8 +778,7 @@ Dataset {
    } station;
 } arabian-sea;
 ....
-
-Sample Data Descriptor
+===== Sample Data Descriptor =====
 
 The following URL will return only the pressure and temperature pairs of
 this dataset. (Note that the constraint expression parser removes all
@@ -804,7 +850,7 @@ would be:
 ?station.02cal[0:4]
 ....
 
- +
+// + deleted lb 7/11/16
 By specifying a stride value, we can also select a hyperslab of the
 oxygen calibration array:
 
@@ -820,10 +866,12 @@ analogous way. The return value is an array of the same number of
 dimensions as the sampled array, with each dimension size equal to the
 number of elements selected from it.
 
-[[operators-special-functions-and-data-types]]
-[[Operators.2C_Special_Functions.2C_and_Data_Types]]2.1.2 Operators,
-Special Functions, and Data Types
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[operators-special-functions-and-data-types]]
+// [[Operators.2C_Special_Functions.2C_and_Data_Types]]2.1.2 Operators,
+// Special Functions, and Data Types
+// deleted 2 lines of ^^^ lb 7/11/16
+// reformatted title lb 7/11/16
+==== 2.1.2 Operators, Special Functions, and Data Types ====
 
 The constraint expression syntax defines a number of operators for each
 data type. These operators are listed in the table below.
@@ -831,46 +879,24 @@ data type. These operators are listed in the table below.
 All the operators defined for the scalar base types are boolean
 operators whose result depends on the specified comparison between its
 arguments.
+// no table format transferred over
+// attempt to fix table lb 7/11/16
 
-Constraint Expression Operators.
+.Constraint Expression Operators
+|=========================
+|Class |Operators
+|*Simple Types* |
+|Byte, Int*, UInt*, Float*  |< > = != <= >=
+|String  |= != ~=
+|URL  |= != ~=
+|*Compound Types*  |
+|Array  | [start:stop] [start:stride:stop]
+|Structure  | . /
+|Sequence  | . /
+|Grid  |[start:stop] [start:stride:stop]
+|=========================
+// + deleted lb 7/11/16
 
-Class
-
-Operators
-
-*Simple Types*
-
-Byte, Int*, UInt*, Float*
-
-< > = != <= >=
-
-String
-
-= != ~=
-
-URL
-
-= != ~=
-
-*Compound Types*
-
-Array
-
-[start:stop] [start:stride:stop]
-
-Structure
-
-. /
-
-Sequence
-
-. /
-
-Grid
-
-[start:stop] [start:stride:stop] .
-
- +
 Individual fields of type constructors may be accessed using the dot (.)
 operator or the virtual file system syntax. If a structure s has two
 fields time and temperature, then those fields may be accessed using
@@ -885,9 +911,11 @@ The array operator [] is used to subsample the given array. You can find
 several examples of its use in the
 link:/index.php/QuickStart#Peeking_at_Data[Quick Start Guide].
 
-[[constraint-expression-functions]]
-[[Constraint_Expression_Functions]]2.1.3 Constraint Expression Functions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[constraint-expression-functions]]
+// [[Constraint_Expression_Functions]]2.1.3 Constraint Expression Functions
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb/7/11/17
+==== 2.1.3 Constraint Expression Functions ====
 
 An OPeNDAP data server may define its own set of functions that may be
 used in a constraint expression. For example, the oceans.edu data server
@@ -918,20 +946,22 @@ And:
 
 http://test.opendap.org/dap/data/nc/sst.mnmean.nc.gz.asc?geogrid()
 
-___________________________________________________________________________________________________________________________________________________________________________________________________________________
-Note: When using functions, be careful to remember that a function used
+// deleted 3 lines of underlines and reformatted note
+// lb 7/11/16
+
+[NOTE]
+When using functions, be careful to remember that a function used
 in a projection can return any value, but when used in a selection
 clause, it must either return a boolean value, or be part of a test that
-
 returns a boolean value.
-___________________________________________________________________________________________________________________________________________________________________________________________________________________
+// deleted 3 lines of underlines and removed "+" sign lb 7/11/16
+// +
+// [[pattern-matching-with-constraint-expressions]]
+// [[Pattern_Matching_with_Constraint_Expressions]]2.1.4 Pattern Matching
+// with Constraint Expressions
+// deleted one line of ^^^^ and reformatted heading lb 7/11/16
 
- +
-
-[[pattern-matching-with-constraint-expressions]]
-[[Pattern_Matching_with_Constraint_Expressions]]2.1.4 Pattern Matching
-with Constraint Expressions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==== 2.1.4 Pattern Matching with Constraint Expressions ====
 
 There are three operators defined to compare one String data type to
 another. The = operator returns TRUE if its two input character strings
@@ -954,9 +984,12 @@ Most characters in a regular expression match themselves. That is, an
 There are several special characters, however, that provide more
 sophisticated pattern-matching capabilities.
 
-. ::
+// added "$$" around first two entries as they didn't convert
+// correctly
+// lb 7/11/16
+$$.$$::
   The period matches any single character except a newline.
- * + ? ::
+ $$* + ?$$ ::
   These are postfix operators, which indicate to try to match the
   preceding regular expression repetitively (as many times as possible).
   Thus, o* matches any number of o’s. The operators differ in that o*
@@ -984,7 +1017,7 @@ sophisticated pattern-matching capabilities.
   for the OR function. So, for example, \(abc\)* matches zero or more
   repetitions of the string abc2.
 
- +
+// + deleted lb 7/11/16
 There are several more special characters and several other features of
 the characters described here, but they are beyond the scope of this
 guide. The OPeNDAP regular expression syntax is the same as that used in
@@ -992,9 +1025,11 @@ the Emacs editor. See the documentation for Emacs for a complete
 description of all the pattern- matching capabilities of regular
 expressions.
 
-[[optimizing-the-query]]
-[[Optimizing_the_Query]]2.1.5 Optimizing the Query
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[optimizing-the-query]]
+// [[Optimizing_the_Query]]2.1.5 Optimizing the Query
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted title lb 7/11/16
+==== 2.1.5 Optimizing the Query ====
 
 Using the tools provided by OPeNDAP, a user can build quite elaborate
 and sophisticated constraint expressions that will return precisely the
@@ -1026,7 +1061,7 @@ station. However, consider the following expression:
 ?station&station.cast.O2>15.0&station.month={3,4,5}
 ....
 
- +
+//  + deleted lb 7/11/16
 For each station there is only one month value, while there are many
 oxygen values. Passing a constraint expression like this one will force
 the server to sort through all the oxygen data for each station (which
@@ -1050,144 +1085,147 @@ a URL should be left to the end of the selection. This way, the OPeNDAP
 server will only be forced to go to the network for data if absolutely
 necessary to evaluate the constraint expression.
 
-Retrieved from
-"http://docs.opendap.org/index.php?title=UserGuideOPeNDAPMessages&oldid=4892"
+// Retrieved from...deleted all from this point
+// on lb 7/11/16
+// "http://docs.opendap.org/index.php?title=UserGuideOPeNDAPMessages&oldid=4892"
 
-[[catlinks]][[column-one]]
-[[navigation-menu]]
-Navigation menu
-~~~~~~~~~~~~~~~
+// [[catlinks]][[column-one]]
+// [[navigation-menu]]
+// Navigation menu
+// ~~~~~~~~~~~~~~~
 
-[[p-cactions]]
-[[views]]
-Views
-^^^^^
+// [[p-cactions]]
+// [[views]]
+// Views
+// ^^^^^
 
-* [[ca-nstab-main]]
-+
-link:/index.php/UserGuideOPeNDAPMessages[Page]
-* [[ca-talk]]
-+
-/index.php?title=Talk:UserGuideOPeNDAPMessages&action=edit&redlink=1[Discussion]
-* [[ca-viewsource]]
-+
-link:/index.php?title=UserGuideOPeNDAPMessages&action=edit[View source]
-* [[ca-history]]
-+
-link:/index.php?title=UserGuideOPeNDAPMessages&action=history[History]
+// * [[ca-nstab-main]]
+// +
+// link:/index.php/UserGuideOPeNDAPMessages[Page]
+// * [[ca-talk]]
+// +
+// /index.php?title=Talk:UserGuideOPeNDAPMessages&action=edit&redlink=1[Discussion]
+// * [[ca-viewsource]]
+// +
+// link:/index.php?title=UserGuideOPeNDAPMessages&action=edit[View source]
+// * [[ca-history]]
+// +
+// link:/index.php?title=UserGuideOPeNDAPMessages&action=history[History]
 
-[[p-personal]]
-[[personal-tools]]
-Personal tools
-^^^^^^^^^^^^^^
+// [[p-personal]]
+// [[personal-tools]]
+// Personal tools
+// ^^^^^^^^^^^^^^
 
-* [[pt-login]]
-+
-/index.php?title=Special:UserLogin&returnto=UserGuideOPeNDAPMessages[Log
-in]
+// * [[pt-login]]
+// +
+// /index.php?title=Special:UserLogin&returnto=UserGuideOPeNDAPMessages[Log
+// in]
 
-[[p-logo]]
-link:/index.php/Home[]
+// [[p-logo]]
+// link:/index.php/Home[]
 
-[[p-navigation]]
-[[navigation]]
-Navigation
-^^^^^^^^^^
+// [[p-navigation]]
+// [[navigation]]
+// Navigation
+// ^^^^^^^^^^
 
-* [[n-Home]]
-+
-link:/index.php/Home[Home]
-* [[n-Documentation]]
-+
-link:/index.php/Documentation[Documentation]
-* [[n-Developer-Info]]
-+
-link:/index.php/Developer_Info[Developer Info]
-* [[n-Projects]]
-+
-link:/index.php/Development[Projects]
-* [[n-OPULS.2FDAP4]]
-+
-link:/index.php/OPULS_Development[OPULS/DAP4]
-* [[n-Working-Groups]]
-+
-link:/index.php/Working_Groups[Working Groups]
-* [[n-Meetings]]
-+
-link:/index.php/Meetings[Meetings]
-* [[n-Jira]]
-+
-https://opendap.atlassian.net/[Jira]
-* [[n-Git.28hub.29]]
-+
-https://github.com/opendap[Git(hub)]
-* [[n-Document-Templates]]
-+
-link:/index.php/Document_Templates[Document Templates]
-* [[n-help]]
-+
-/index.php/Help:Contents[Help]
-* [[n-Trac-.28retired.29]]
-+
-https://scm.opendap.org/trac/[Trac (retired)]
-* [[n-Subversion-.28retired.29]]
-+
-https://scm.opendap.org/svn/[Subversion (retired)]
+// * [[n-Home]]
+// +
+// link:/index.php/Home[Home]
+// * [[n-Documentation]]
+// +
+// link:/index.php/Documentation[Documentation]
+// * [[n-Developer-Info]]
+// +
+// link:/index.php/Developer_Info[Developer Info]
+// * [[n-Projects]]
+// +
+// link:/index.php/Development[Projects]
+// * [[n-OPULS.2FDAP4]]
+// +
+// link:/index.php/OPULS_Development[OPULS/DAP4]
+// * [[n-Working-Groups]]
+// +
+// link:/index.php/Working_Groups[Working Groups]
+// * [[n-Meetings]]
+// +
+// link:/index.php/Meetings[Meetings]
+// * [[n-Jira]]
+// +
+// https://opendap.atlassian.net/[Jira]
+// * [[n-Git.28hub.29]]
+// +
+// https://github.com/opendap[Git(hub)]
+// * [[n-Document-Templates]]
+// +
+// link:/index.php/Document_Templates[Document Templates]
+// * [[n-help]]
+// +
+// /index.php/Help:Contents[Help]
+// * [[n-Trac-.28retired.29]]
+// +
+// https://scm.opendap.org/trac/[Trac (retired)]
+// * [[n-Subversion-.28retired.29]]
+// +
+// https://scm.opendap.org/svn/[Subversion (retired)]
 
-[[p-search]]
-[[search]]
-Search
-^^^^^^
+// [[p-search]]
+// [[search]]
+// Search
+// ^^^^^^
 
-[[searchBody]]
+// [[searchBody]]
  
 
-[[p-tb]]
-[[tools]]
-Tools
-^^^^^
+// [[p-tb]]
+// [[tools]]
+// Tools
+// ^^^^^
 
-* [[t-whatlinkshere]]
-+
-/index.php/Special:WhatLinksHere/UserGuideOPeNDAPMessages[What links
-here]
-* [[t-recentchangeslinked]]
-+
-/index.php/Special:RecentChangesLinked/UserGuideOPeNDAPMessages[Related
-changes]
-* [[t-specialpages]]
-+
-/index.php/Special:SpecialPages[Special pages]
-* [[t-print]]
-+
-link:/index.php?title=UserGuideOPeNDAPMessages&printable=yes[Printable
-version]
-* [[t-permalink]]
-+
-link:/index.php?title=UserGuideOPeNDAPMessages&oldid=4892[Permanent
-link]
-* [[t-info]]
-+
-link:/index.php?title=UserGuideOPeNDAPMessages&action=info[Page
-information]
+// * [[t-whatlinkshere]]
+// +
+// /index.php/Special:WhatLinksHere/UserGuideOPeNDAPMessages[What links
+// here]
+// * [[t-recentchangeslinked]]
+// +
+// /index.php/Special:RecentChangesLinked/UserGuideOPeNDAPMessages[Related
+// changes]
+// * [[t-specialpages]]
+// +
+// /index.php/Special:SpecialPages[Special pages]
+// * [[t-print]]
+// +
+// link:/index.php?title=UserGuideOPeNDAPMessages&printable=yes[Printable
+// version]
+// * [[t-permalink]]
+// +
+// link:/index.php?title=UserGuideOPeNDAPMessages&oldid=4892[Permanent
+// link]
+// * [[t-info]]
+// +
+// link:/index.php?title=UserGuideOPeNDAPMessages&action=info[Page
+// information]
 
-[[footer]]
-[[f-poweredbyico]]
-link://www.mediawiki.org/[image:/skins/common/images/poweredby_mediawiki_88x31.png[Powered
-by MediaWiki,width=88,height=31]]
+// [[footer]]
+// [[f-poweredbyico]]
+// link://www.mediawiki.org/[image:/skins/common/images/
+// poweredby_mediawiki_88x31.//
+// png[Powered
+// by MediaWiki,width=88,height=31]]
 
-* [[lastmod]]
-+
-This page was last modified on 1 October 2009, at 17:36.
-* [[viewcount]]
-+
-This page has been accessed 13,297 times.
-* [[privacy]]
-+
-/index.php/OPeNDAP_Documentation:Privacy_policy[Privacy policy]
-* [[about]]
-+
-/index.php/OPeNDAP_Documentation:About[About OPeNDAP Documentation]
-* [[disclaimer]]
-+
-/index.php/OPeNDAP_Documentation:General_disclaimer[Disclaimers]
+// * [[lastmod]]
+// +
+// This page was last modified on 1 October 2009, at 17:36.
+// * [[viewcount]]
+// +
+// This page has been accessed 13,297 times.
+// * [[privacy]]
+// +
+// /index.php/OPeNDAP_Documentation:Privacy_policy[Privacy policy]
+// * [[about]]
+// +
+// /index.php/OPeNDAP_Documentation:About[About OPeNDAP Documentation]
+// * [[disclaimer]]
+// +
+// /index.php/OPeNDAP_Documentation:General_disclaimer[Disclaimers]

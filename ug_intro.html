@@ -1,0 +1,1113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title>UserGuideIntroduction - OPeNDAP Documentation</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>UserGuideIntroduction - OPeNDAP Documentation</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph" id="content"><p><a href=""></a></p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="firstHeading">User Guide Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph" id="siteSub"><p>From OPeNDAP Documentation</p></div>
+<div class="paragraph" id="jump-to-nav"><p>Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></p></div>
+<div class="paragraph" id="mw-content-text"><p><a href="/index.php/UserGuide">Return to top level</a></p></div>
+<div class="sect2">
+<h3 id="contents">Contents</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#What_is_OPeNDAP.3F">1 What is OPeNDAP?</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#The_OPeNDAP_Client">2 The OPeNDAP Client</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#The_OPeNDAP_Services">3 The OPeNDAP Services</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#The_OPeNDAP_Server">4 The OPeNDAP Server</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#Administration_and_Centralization_of_Data">5 Administration and
+Centralization of Data</a>
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_1_what_is_opendap">1 What is OPeNDAP?</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>OPeNDAP provides a way for researchers to access scientific data
+anywhere on the Internet from a wide variety of new <em>and existing</em>
+programs.</p></div>
+<div class="paragraph"><p>The OPeNDAP architecture uses a client/server model, with a <em>client</em>
+that sends requests for data out onto the network to some <em>server</em>,
+that answers with the requested data. This is exactly the model used by
+the <a href="http://www.w3.org/hypertext/WWW/TheProject.html">World Wide Web</a>
+where client browsers submit requests to web servers for the data that
+make up web pages. Of course, OPeNDAP clients can do much more than
+browse this data. Using flexible data types suitable for many uses,
+including scientific data, the OPeNDAP servers deliver real data
+directly to the client program in the format needed by that client.</p></div>
+<div class="paragraph"><p>OPeNDAP clients are very specialized browsers, constructed by linking
+legacy data analysis programs with OPeNDAP-enabled versions of the data
+access APIs they use, or by modifying the programs to use one of the
+OPeNDAP data access APIs. In addition to providing a sophisticated set
+of network-compatible APIs in several languages, there are also
+libraries of legacy APIs available in OPeNDAP-aware versions. The
+popular
+<a href="http://www.unidata.ucar.edu/packages/netcdf/guide.txn_toc.html">NetCDF</a>
+library, for example, can read data from remote OPeNDAP data sources as
+easily as it reads from a local file.</p></div>
+<div class="paragraph"><p>To expand the universe of data available to a user, OPeNDAP incorporates
+a powerful data translation facility, so that data may be stored in data
+structures and formats defined by the data provider, but accessed by the
+user in a manner identical to the access of local data files on the
+user’s own system. Though there are limitations on the types of data
+that may be translated (see
+<a href="/index.php/UserGuideDataModel#Translation">Translation</a>), the
+facility is flexible and general enough to handle many of the possible
+translations. There are two important results:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+A user may not need to know that data from one set are stored in a
+format different from data in another set. Further, it may be possible
+that <em>neither</em> data set is stored in a format readable by the original
+version of the data analysis and display program he or she uses.
+</p>
+</li>
+<li>
+<p>
+No segment of OPeNDAP users will be effectively cut off from accessing
+data because of its storage format. A scientist who wishes to make his
+or her data available to other OPeNDAP users may do so while keeping
+that data in what may actually be a highly idiosyncratic storage format.
+(Of course, it doesn’t <em>have</em> to be in a highly idiosyncratic format.)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The combination of the OPeNDAP network communication model and the data
+translation facility make OPeNDAP a powerful tool for the retrieval,
+sampling, and display of large distributed datasets. Though OPeNDAP was
+developed by oceanographers, its application is not limited to
+oceanographic data. The organizing principles and algorithms may be
+applied to many other fields.</p></div>
+<div class="paragraph"><p>The uniformity with which data appears that makes the system so useful
+for data analysis also eases automating data transport and manipulation
+tasks. For example, NOAA’s
+<a href="http://ferret.pmel.noaa.gov/Ferret/LAS/home/">Live Access Server (LAS)</a>
+(see, for example, <a href="http://mynasadata.larc.nasa.gov/data.html">http://mynasadata.larc.nasa.gov/data.html</a>) uses
+OPeNDAP, as do many of the real-time observing systems that make up the
+<a href="http://www.ioos.gov">Integrated Ocean Observing System (IOOS)</a>, like the
+<a href="http://gomoos.org">Gulf of Maine Ocean Observing System (GoMOOS)</a>.</p></div>
+<div class="paragraph"><p>The population of people who may be interested in a system such as
+OPeNDAP may be divided into data consumers and data providers. Though it
+was an important observation to the development of OPeNDAP that the two
+roles are often assumed by the same scientists, the division is a useful
+one for the introduction of the system. The following two sections
+provide a broad introduction to the roles of data consumer and data
+provider. The remainder of this guide is organized around this
+distinction between classes of users.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_the_opendap_client">2 The OPeNDAP Client</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>OPeNDAP uses a client/server model. The OPeNDAP servers are web servers
+equipped to interpret an OPeNDAP URL sent to them. An OPeNDAP client
+composes and sends messages to those servers. There are standalone
+OPeNDAP clients, but most clients are constructed from data analysis
+programs modified to get their data remotely, from the internet, rather
+than locally, from a file.</p></div>
+<div class="paragraph"><p>Without OPeNDAP, an application program that uses one of the common data
+access APIs such as netCDF will operate as shown in
+/index.php/File:Unlinked.gif[the figure below]. The user makes a request
+for data from the application program. This program uses some data
+access API to read and write data. The program uses procedures defined
+by that API to access the data, which is typically stored on the same
+host machine. Some APIs are somewhat more sophisticated than this, of
+course, but their general operation is as simple.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="Unlinked.png" alt="The Architecture of a Data Analysis Package" />
+</div>
+<div class="title">Figure 1. The Architecture of a Data Analysis Package</div>
+</div>
+<div class="paragraph"><p>The operation of an OPeNDAP client is illustrated in the
+Unlinked.gif[figure below]. Here, the <em>same application
+program</em> that was used in /index.php/File:Unlinked.gif[the figure above]
+has been modified to use one of the OPeNDAP API libraries. Now, in
+addition to being able to use local data as before, the application
+program is able to access data from OPeNDAP servers anywhere on the
+Internet in the same manner as the local data.</p></div>
+<div class="paragraph"><p>To make some analysis program into an OPeNDAP client, just re-link it
+with the OPeNDAP API library. (Or, if your program uses one of the
+supported legacy API libraries, like netCDF, you can link with the
+OPeNDAP version of that library.) This will create a program that
+accepts URLs as well as file pathnames to identify data to be read. (See
+<a href="/index.php/UserGuideClient">the OPeNDAP Client</a>).</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="Linked.png" alt="The Architecture of a Data Analysis Package using OPeNDAP" />
+</div>
+<div class="title">Figure 2. The Architecture of a Data Analysis Package Using OPeNDAP</div>
+</div>
+<div class="paragraph"><p>OPeNDAP also provides a data translation facility. Data from the
+original data file is translated by the OPeNDAP server into the OPeNDAP
+data model for transmission to the client. Upon receiving the data, the
+client translates the data into the
+<a href="/index.php/UserGuideDataModel">data model</a> it understands. Because
+the data transmitted from an OPeNDAP server to the client travel in the
+OPeNDAP format, the dataset’s original storage format is completely
+irrelevant to the client. If the client was originally designed to read
+netCDF format files, the data returned by the OPeNDAP-netCDF library
+will appear to have been read from a netCDF file, whatever the actual
+format of the files from which the data were
+read(<a href="/index.php?title=Wiki_Testing/OPeNDAPUserGuideFootNotes&amp;action=edit&amp;redlink=1">4</a>).
+If the program expects JGOFS data, the OPeNDAP-JGOFS library will return
+data that seem to have come from a JGOFS dataset, and so on.</p></div>
+<div class="paragraph"><p>OPeNDAP does not pretend to remove all the overhead of data searches. A
+user will still have to keep track of the URLs of interesting data in
+the same way a user must now keep track of the names of files. (You may
+run across datasets where the data consists of OPeNDAP URLs. These are
+the OPeNDAP file servers, and have been developed by OPeNDAP users to
+organize datasets consisting of large numbers of individual files.) But
+it does make the access to that data simpler and quicker.</p></div>
+<div class="paragraph"><p>The OPeNDAP group provides a whole array of client software to implement
+this communication standard. These range from standalone clients to
+libraries to link with existing software. There is more about these in
+<a href="/index.php?title=UserGuideOPeNDAPClient&amp;action=edit&amp;redlink=1">OPeNDAP
+Client</a>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_the_opendap_services">3 The OPeNDAP Services</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The communication between an OPeNDAP client and server is specified by
+the Data Access Protocol (DAP). This defines the range of messages a
+server must understand and the kinds of replies it makes.</p></div>
+<div class="paragraph"><p>There are two categories of messages an OPeNDAP server can understand.
+Some are required by the DAP, and others are merely suggested. A server
+is considered to be DAP-compliant if it can respond intelligibly to the
+required messages.</p></div>
+<div class="paragraph"><p>The requests messages a server is required to understand are these:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Data Description 
+</dt>
+<dd>
+<p>
+  Data values come in types and sizes. An array, for example, might
+  consist of 10 integers. The value &#8220;ten&#8221; and the type &#8220;integer&#8221;
+  describe the array. This request returns information about data types,
+  so that a receiving program can allocate space appropriately. See
+  <a href="/index.php/UserGuideDataModel#DDS">Data Description Structure
+  (DDS)</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+Data Attribute 
+</dt>
+<dd>
+<p>
+  This is a request to provide information <em>about</em> data, and typically
+  includes information like units, names of data types, reference
+  information and so on. See <a href="/index.php/UserGuideDataModel#DAS">Data
+  Attribute Structure (DAS)</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+Data 
+</dt>
+<dd>
+<p>
+  The server also must be able to respond to a request for the data
+  itself. See <a href="/index.php/UserGuideDataModel#DataDDS">data response</a>.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>A server may respond to requests like these, too:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+ASCII 
+</dt>
+<dd>
+<p>
+  Some servers can convert data to ASCII values on the fly. This allows
+  users to view data using a standard web browser, assuming the data are
+  not too large. See <a href="/index.php/UserGuideServer#ASCII">ASCII
+  return</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+Info 
+</dt>
+<dd>
+<p>
+  The info response is a formatted page containing information from the
+  Data Attributes and Data Description responses. It’s meant to be a
+  human-readable way to show what’s available in a dataset via a
+  standard web browser. See <a href="/index.php/UserGuideServer#Info">Info
+  response</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+HTML 
+</dt>
+<dd>
+<p>
+  Very similar to the info response is the HTML response. This provides
+  not only the information from the info response, but also includes a
+  Javascript form to help you build a request for data from the same
+  data file. The best description of the HTML form is in the
+  <a href="/index.php/QuickStart">Quick Start Guide</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+SOAP 
+</dt>
+<dd>
+<p>
+  OPeNDAP servers can provide their data in terms of a SOAP request and
+  response. For more information see
+  <a href="/index.php/UserGuideDataModel#SOAP">SOAP Request</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+DDX 
+</dt>
+<dd>
+<p>
+  The DDX is an XML version of the Data Attribute and Data Description
+  replies. See <a href="/index.php/UserGuideServer#DDX">DDX Request</a>.
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_4_the_opendap_server">4 The OPeNDAP Server</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>OPeNDAP provides a definition of the communication between client and
+server. Servers and clients who conform to that standard can communicate
+with each other. In addition to the OPeNDAP communication standard
+itself, the OPeNDAP group also provides an implementation of that
+standard server protocol, called <em>Hyrax.</em></p></div>
+<div class="paragraph"><p>The OPeNDAP data server is made up of two pieces. You can think of them
+as a front-end and a back-end, though a client will not be aware of the
+separation. They will often be run on the same machine, and even when
+they are not, a client will see only the front end.</p></div>
+<div class="paragraph"><p>The front-end server is a Tomcat servlet, and is also called the
+<strong>OPeNDAP Lightweight Front-End Servlet</strong> (OLFS). Its job is to receive
+your request for data and manage all the different forms such a request
+might take. For example, you might be asking for the data, an ASCII
+version of the data, or a reply to a SOAP message looking for data. The
+front-end server can also reply to THREDDS catalog requests, for
+information about the data, and can directly provide some information
+about the data, too.</p></div>
+<div class="paragraph"><p>The <strong>Back-End Server</strong> (BES) is more strictly about performance, and is
+designed to respond quickly and efficiently to requests from the OLFS.
+It is a pure data server, and has only one format of request and
+response, relying on the OLFS to convert messages to whatever format
+will accommodate the user. Most users won’t make requests directly to
+the BES.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="HyraxArchitecture.jpg" alt="Hyrax Architecture" />
+</div>
+<div class="title">Figure 3. Hyrax Architecture</div>
+</div>
+<div class="paragraph"><p><em>Hyrax</em> is an alternative name for the OPeNDAP 4 Data Server.</p></div>
+<div class="paragraph"><p>See <a href="/index.php/UserGuideDataModel">Data Model</a> for a description of
+the data returned by these requests and see
+<a href="/index.php/UserGuideServer">OPeNDAP Server</a> for a description of the
+URL syntax used to send these requests.</p></div>
+<div class="paragraph"><p>See <a href="/index.php/Hyrax">the OPeNDAP 4 Data Server documentation</a> for a
+description of how to install and configure an OPeNDAP data server
+(Hyrax).</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Administration_and_Centralization_of_Data">5 Administration and Centralization of Data</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Under OPeNDAP, there is no central archive of data. Data under OPeNDAP
+is organized in a manner similar to the World Wide Web itself. That is,
+all one need do to make one’s data available is to start up a properly
+configured server on an Internet node that has access to the data to be
+served. Each data provider is free to join and to leave the system when
+it is convenient, just as any proprietor of a web page is free to delete
+it or add to it as whimsy demands.</p></div>
+<div class="paragraph"><p>Of course, as can also be seen on the World Wide Web, there are some
+disadvantages to the lack of central authority. If no one knows about a
+web site, no one will visit it. Similarly, listing a dataset in a
+central data catalog, such as the Global Change Master Directory
+(<a href="http://gcmd.gsfc.nasa.gov">http://gcmd.gsfc.nasa.gov/</a>),can make data
+available to other researchers in a way that simply configuring an
+OPeNDAP server does not. OPeNDAP provided a facility for registering a
+data set with the GCMD catalog, which makes the data set known to the
+OPeNDAP data location service. The THREDDS catalog service is another
+way to make information about your data widely available.</p></div>
+<div class="paragraph"><p>The remainder of this book will be divided into three major sections:
+instructions on the building and operating of OPeNDAP clients; a
+tutorial and reference on running OPeNDAP servers and making data
+available to OPeNDAP clients; and technical documentation describing the
+implementation details (and the motivation behind many of the design
+decisions) of the OPeNDAP software.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2016-07-12 11:09:52 MDT
+</div>
+</div>
+</body>
+</html>

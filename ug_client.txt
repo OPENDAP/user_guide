@@ -7,14 +7,15 @@ UserGuideClient - OPeNDAP Documentation
 link:[]
 
 [[firstHeading]]
-UserGuideClient
+User Guide Client
 ---------------
 
 [[bodyContent]]
 [[siteSub]]
 From OPeNDAP Documentation
 
-[[contentSub]][[jump-to-nav]]
+[[contentSub]]
+[[jump-to-nav]]
 Jump to: link:#column-one[navigation], link:#searchInput[search]
 
 [[mw-content-text]]
@@ -36,11 +37,13 @@ GrADS]
 **** link:#C_Client_Library[1.1.3.2 C Client Library]
 **** link:#Java_Client_Library[1.1.3.3 Java Client Library]
 **** link:#netCDF_API_Library[1.1.3.4 netCDF API Library]
-**** link:#Python_library[1.1.3.5 Python library]
+**** link:#Python_Library[1.1.3.5 Python library]
 
-[[the-opendap-client]]
-[[The_OPeNDAP_Client]]1 The OPeNDAP Client
-------------------------------------------
+// [[the-opendap-client]]
+// [[The_OPeNDAP_Client]]
+== 1 The OPeNDAP Client ==
+// ------------------------------------------
+// reformatted lb 6/29/16
 
 The OPeNDAP client is the program that sends a message to an OPeNDAP
 server in order to get some data, or other information.
@@ -86,15 +89,20 @@ This page provides a list and very brief overview of the various
 options, along with pointers to places you can find more information
 about each one.
 
-[[clients]]
-[[Clients]]1.1 Clients
-~~~~~~~~~~~~~~~~~~~~~~
+// [[clients]]
+// [[Clients]]
+=== 1.1 Clients ===
+// ~~~~~~~~~~~~~~~~~~~~~~
+// reformatted lb 6/29/16
 
 OPeNDAP clients come in a variety of forms. The simplest are web
 browsers, who use the OPeNDAP
 link:/index.php/UserGuideOPeNDAPMessages#WWW_Interface_Service[WWW
 interface] and the
-[[link:/index.php/UserGuideOPeNDAPMessages#ASCII_Service[ASCII response]
+// [[link:/index.php/UserGuideOPeNDAPMessages#ASCII_Service[ASCII response]
+// to check out data sets and download data.
+// trying to fix lb 7/13/16
+link:UserGuideOPeNDAPMessages#ASCII_Service[ASCII response]
 to check out data sets and download data.
 
 Beyond these, there are three categories of client. The first contains
@@ -105,11 +113,13 @@ libraries you can use for developing your own client, or for converting
 an existing body of code into an OPeNDAP client. These are reviewed in
 that order below:
 
- +
+// + deleted 6/29/16 lb
 
-[[matlab-idl-ferret-grads]]
-[[Matlab.2C_IDL.2C_Ferret.2C_GrADS]]1.1.1 Matlab, IDL, Ferret, GrADS
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[matlab-idl-ferret-grads]]
+// [[Matlab.2C_IDL.2C_Ferret.2C_GrADS]]
+==== 1.1.1 Matlab, IDL, Ferret, GrADS ====
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted lb 6/29/16
 
 To use OPeNDAP with Matlab or IDL, you’ll need the client for each. This
 is a special program that issues a request for data from an OPeNDAP
@@ -130,20 +140,25 @@ oceanographic data, you may be interested in the graphical user
 interface available for it. See [http://oceanographicdata.org/toolbox
 Matlab OPeNDAP Ocean Toolbox].
 
-[[testing]]
-[[Testing]]1.1.2 Testing
-^^^^^^^^^^^^^^^^^^^^^^^^
+// [[testing]]
+// [[Testing]]
+==== 1.1.2 Testing ====
+// ^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted lb 6/29/16
 
 There are a couple of command-line clients out there you can use, though
 most people only use them for testing. Part of the libdap distribution
-(the C++ interface) is a program called getdap, which takes an OPeNDAP
+(the C\++ interface) is a program called getdap, which takes an OPeNDAP
 URL as a command-line argument and returns the reply to standard output.
 This is typically used to check that the libdap C++ library is properly
 compiled, but you can also use it to retrieve data.
 
+// \ inserted before '++' to eliminate whole paragraph being
+// interpreted as monospaced text lb 6/29/16
+
 Part of the OPeNDAP C library is a command-line client called octest.
 This allows you to type commands to manipulate responses to an OPeNDAP
-URL. Like the C++ test program, this can be construed as a test of the
+URL. Like the C ++ test program, this can be construed as a test of the
 library or a test of the servers, but it can also be used as a
 command-line client, perhaps as an aid to automation.
 
@@ -163,12 +178,15 @@ the command line, like this:
 
 Using OPeNDAP, this same function may be executed from any computer
 connected to the Internet by substituting a URL for the filename above:
-
 ....
 > ncdump http://dods.gso.uri.edu/cgi-bin/nc/data/fnocl.nc
 ....
 
- +
+// + eliminated lb 6/29/16
+// eliminated blank space before '....' to fix
+// monospace problem in following paragraph
+// lb 6/29/16
+
 Aside from the fact that the data is remote, and must be specified with
 a URL, the program will seem to function in the same way it had with the
 simple netCDF library (albeit somewhat more slowly due to having to make
@@ -212,11 +230,13 @@ data:
 ...
 ....
 
- +
+// + deleted lb 6/29/16
 
-[[client-libraries]]
-[[Client_Libraries]]1.1.3 Client Libraries
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// [[client-libraries]]
+// [[Client_Libraries]]
+==== 1.1.3 Client Libraries ====
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// reformatted lb 6/29/16
 
 Several libraries exist that you can link with other software to create
 an OPeNDAP client. Some of these are provided by the OPeNDAP project
@@ -226,17 +246,23 @@ The OPeNDAP libraries are functional equivalents of each other. They are
 derived from separate code bases, but they do the same thing. They are
 provided in different languages for the convenience of the implementer.
 
- +
+// + deleted lb 6/29/16
 
-[[c-client-library]]
-[[C.2B.2B_Client_Library]]1.1.3.1 C++ Client Library
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+// [[c-client-library]]
+// [[C.2B.2B_Client_Library]]
+===== 1.1.3.1 C++ Client Library =====
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++
+// reformatted lb 6/29//16
 
-The http://opendap.org/download/libdap++.html[C++ library], also called
+The http://opendap.org/download/libdap.html[C++ library], also called
 libdap, was the original client implementation of the OPeNDAP protocol.
 It provides classes to manage the connection between a client and a data
 source, as well as classes for each of the data types, and the other
 information (such as DAS and DDS) a client will encounter.
+
+// removed '++' from libdap.++html
+// enabled 'C++' to translate correctly
+// lb 6/29/16
 
 To use the library, you will need to provide implementations for some
 abstract classes. Consult the link:/index.php/Libdap_Overview[libdap
@@ -245,29 +271,39 @@ this library. You will also find the
 http://www.opendap.org/api/pref/html/index.html[C++ library Reference]
 useful.
 
-[[c-client-library-1]]
-[[C_Client_Library]]1.1.3.2 C Client Library
-++++++++++++++++++++++++++++++++++++++++++++
+// [[c-client-library-1]]
+// [[C_Client_Library]]
+===== 1.1.3.2 C Client Library =====
+// +++++++++++++++++++++++++++++++++
+// reformatted lb 6/29/16
 
-The OPeNDAP group supports a http://opendap.org/download/oc.html[C
-library]. The C library is in many ways a simpler library to use than
+The OPeNDAP group supports an http://opendap.org/download/oc.html[C
+library]. The C\++ library is in many ways a simpler library to use than
 the C++ libdap, but it is not as flexible in other ways. Using the
 library is straightforward, and you’ll find a file called
 octutorial.html in the software release that provides a detailed example
 of its use.
 
-[[java-client-library]]
-[[Java_Client_Library]]1.1.3.3 Java Client Library
-++++++++++++++++++++++++++++++++++++++++++++++++++
+// \ inserted between C\++ to get ride of
+// monospaced text in remainder of sentence
+// lb 6/29/16
+
+// [[java-client-library]]
+// [[Java_Client_Library]]
+===== 1.1.3.3 Java Client Library =====
+// ++++++++++++++++++++++++++++++++++++
+//reformatted lb 6/29/16
 
 The OPeNDAP group supports a
 http://opendap.org/download/java-dap.html[Java implementation] of the
 DAP. On the Java page, there are links to download the Java class
 documentation.
 
-[[netcdf-api-library]]
-[[netCDF_API_Library]]1.1.3.4 netCDF API Library
-++++++++++++++++++++++++++++++++++++++++++++++++
+// [[netcdf-api-library]]
+// [[netCDF_API_Library]]
+===== 1.1.3.4 netCDF API Library =====
+// ++++++++++++++++++++++++++++++++++
+// reformatted lb 6/29/16
 
 The http://www.unidata.ucar.edu/software/netcdf[netCDF library] deserves
 special note. This is a drop-in replacement for the standard netCDF
@@ -279,11 +315,13 @@ version of the netCDF library.
 See the http://www.unidata.ucar.edu/software/netcdf[netCDF home page]
 for information about how to use that library.
 
- +
+// + deleted lb 6/29/16
 
-[[python-library]]
-[[Python_library]]1.1.3.5 Python library
-++++++++++++++++++++++++++++++++++++++++
+// [[python-library]]
+// [[Python_library]]
+===== 1.1.3.5 Python library =====
+// ++++++++++++++++++++++++++++++++++++++++
+// reformatted lb 6/29/16
 
 http://pydap.org[Pydap] is an implementation of the OPeNDAP client in
 pure Python. This is tremendously useful for scripting complicated
@@ -291,138 +329,3 @@ applications with lots of download steps. This is not supported by the
 OPeNDAP group, so please refer to the http://pydap.org[Pydap site] for
 more information about it.
 
-Retrieved from
-"http://docs.opendap.org/index.php?title=UserGuideClient&oldid=4935"
-
-[[catlinks]][[column-one]]
-[[navigation-menu]]
-Navigation menu
-~~~~~~~~~~~~~~~
-
-[[p-cactions]]
-[[views]]
-Views
-^^^^^
-
-* [[ca-nstab-main]]
-+
-link:/index.php/UserGuideClient[Page]
-* [[ca-talk]]
-+
-/index.php?title=Talk:UserGuideClient&action=edit&redlink=1[Discussion]
-* [[ca-viewsource]]
-+
-link:/index.php?title=UserGuideClient&action=edit[View source]
-* [[ca-history]]
-+
-link:/index.php?title=UserGuideClient&action=history[History]
-
-[[p-personal]]
-[[personal-tools]]
-Personal tools
-^^^^^^^^^^^^^^
-
-* [[pt-login]]
-+
-/index.php?title=Special:UserLogin&returnto=UserGuideClient[Log in]
-
-[[p-logo]]
-link:/index.php/Home[]
-
-[[p-navigation]]
-[[navigation]]
-Navigation
-^^^^^^^^^^
-
-* [[n-Home]]
-+
-link:/index.php/Home[Home]
-* [[n-Documentation]]
-+
-link:/index.php/Documentation[Documentation]
-* [[n-Developer-Info]]
-+
-link:/index.php/Developer_Info[Developer Info]
-* [[n-Projects]]
-+
-link:/index.php/Development[Projects]
-* [[n-OPULS.2FDAP4]]
-+
-link:/index.php/OPULS_Development[OPULS/DAP4]
-* [[n-Working-Groups]]
-+
-link:/index.php/Working_Groups[Working Groups]
-* [[n-Meetings]]
-+
-link:/index.php/Meetings[Meetings]
-* [[n-Jira]]
-+
-https://opendap.atlassian.net/[Jira]
-* [[n-Git.28hub.29]]
-+
-https://github.com/opendap[Git(hub)]
-* [[n-Document-Templates]]
-+
-link:/index.php/Document_Templates[Document Templates]
-* [[n-help]]
-+
-/index.php/Help:Contents[Help]
-* [[n-Trac-.28retired.29]]
-+
-https://scm.opendap.org/trac/[Trac (retired)]
-* [[n-Subversion-.28retired.29]]
-+
-https://scm.opendap.org/svn/[Subversion (retired)]
-
-[[p-search]]
-[[search]]
-Search
-^^^^^^
-
-[[searchBody]]
- 
-
-[[p-tb]]
-[[tools]]
-Tools
-^^^^^
-
-* [[t-whatlinkshere]]
-+
-/index.php/Special:WhatLinksHere/UserGuideClient[What links here]
-* [[t-recentchangeslinked]]
-+
-/index.php/Special:RecentChangesLinked/UserGuideClient[Related changes]
-* [[t-specialpages]]
-+
-/index.php/Special:SpecialPages[Special pages]
-* [[t-print]]
-+
-link:/index.php?title=UserGuideClient&printable=yes[Printable version]
-* [[t-permalink]]
-+
-link:/index.php?title=UserGuideClient&oldid=4935[Permanent link]
-* [[t-info]]
-+
-link:/index.php?title=UserGuideClient&action=info[Page information]
-
-[[footer]]
-[[f-poweredbyico]]
-link://www.mediawiki.org/[image:/skins/common/images/poweredby_mediawiki_88x31.png[Powered
-by MediaWiki,width=88,height=31]]
-
-* [[lastmod]]
-+
-This page was last modified on 6 October 2009, at 23:14.
-* [[viewcount]]
-+
-This page has been accessed 6,865 times.
-* [[privacy]]
-+
-/index.php/OPeNDAP_Documentation:Privacy_policy[Privacy policy]
-* [[about]]
-+
-/index.php/OPeNDAP_Documentation:About[About OPeNDAP Documentation]
-* [[disclaimer]]
-+
-/index.php/OPeNDAP_Documentation:General_disclaimer[Disclaimers]

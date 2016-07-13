@@ -7,14 +7,15 @@ UserGuideIntroduction - OPeNDAP Documentation
 link:[]
 
 [[firstHeading]]
-UserGuideIntroduction
----------------------
+== User Guide Introduction ==
+// ---------------------
 
 [[bodyContent]]
 [[siteSub]]
 From OPeNDAP Documentation
 
-[[contentSub]][[jump-to-nav]]
+[[contentSub]]
+[[jump-to-nav]]
 Jump to: link:#column-one[navigation], link:#searchInput[search]
 
 [[mw-content-text]]
@@ -33,9 +34,11 @@ Contents
 * link:#Administration_and_Centralization_of_Data[5 Administration and
 Centralization of Data]
 
-[[what-is-opendap]]
-[[What_is_OPeNDAP.3F]]1 What is OPeNDAP?
-----------------------------------------
+// [[what-is-opendap]]
+// [[What_is_OPeNDAP.3F]]
+// reformatted title lb 6/28/16
+== 1 What is OPeNDAP? ==
+// ----——————————————————
 
 OPeNDAP provides a way for researchers to access scientific data
 anywhere on the Internet from a wide variety of new _and existing_
@@ -99,7 +102,8 @@ OPeNDAP, as do many of the real-time observing systems that make up the
 http://www.ioos.gov[Integrated Ocean Observing System (IOOS)], like the
 http://gomoos.org[Gulf of Maine Ocean Observing System (GoMOOS)].
 
- +
+// +
+// eliminated '+' lb 6/28/16
 The population of people who may be interested in a system such as
 OPeNDAP may be divided into data consumers and data providers. Though it
 was an important observation to the development of OPeNDAP that the two
@@ -109,10 +113,11 @@ provide a broad introduction to the roles of data consumer and data
 provider. The remainder of this guide is organized around this
 distinction between classes of users.
 
-[[the-opendap-client]]
-[[The_OPeNDAP_Client]]2 The OPeNDAP Client
-------------------------------------------
-
+// [[the-opendap-client]]
+// [[The_OPeNDAP_Client]]
+== 2 The OPeNDAP Client ==
+// ----———————————————————
+// eliminated above and reformatted title lb 6/28/16
 OPeNDAP uses a client/server model. The OPeNDAP servers are web servers
 equipped to interpret an OPeNDAP URL sent to them. An OPeNDAP client
 composes and sends messages to those servers. There are standalone
@@ -129,18 +134,25 @@ by that API to access the data, which is typically stored on the same
 host machine. Some APIs are somewhat more sophisticated than this, of
 course, but their general operation is as simple.
 
-/index.php/File:Unlinked.png[image:/images/7/76/Unlinked.png[actual
-size,width=186,height=387]]
-
-The Architecture of a Data Analysis Package
+// /index.php/File:Unlinked.png[image:/images/7/76/Unlinked.png[actual
+// size,width=186,height=387]]
+// attempt new path for figure lb 6/28/16
+.The Architecture of a Data Analysis Package
+image::Unlinked.png[The Architecture of a Data Analysis Package,186,387,align="center"]
+// .The Architecture of a Data Analysis Package moved lb 7/12/16
+// The Architecture of a Data Analysis Package
+// paragraph below needs revised once figure links are resolved
+// lb 6/28/16
 
 The operation of an OPeNDAP client is illustrated in the
-/index.php/File:Unlinked.gif[figure below]. Here, the _same application
+Unlinked.gif[figure below]. Here, the _same application
 program_ that was used in /index.php/File:Unlinked.gif[the figure above]
 has been modified to use one of the OPeNDAP API libraries. Now, in
 addition to being able to use local data as before, the application
 program is able to access data from OPeNDAP servers anywhere on the
 Internet in the same manner as the local data.
+
+// reworked index.php/File:Unlinked.gif[figure below] lb 7/3/16 (above)
 
 To make some analysis program into an OPeNDAP client, just re-link it
 with the OPeNDAP API library. (Or, if your program uses one of the
@@ -149,12 +161,14 @@ OPeNDAP version of that library.) This will create a program that
 accepts URLs as well as file pathnames to identify data to be read. (See
 link:/index.php/UserGuideClient[the OPeNDAP Client]).
 
-/index.php/File:Linked.png[image:/images/8/87/Linked.png[actual
-size,width=342,height=528]]
+// /index.php/File:Linked.png[image:/images/8/87/Linked.png[actual
+// size,width=342,height=528]]
+// trying new link to figure lb 6/28/16
+.The Architecture of a Data Analysis Package Using OPeNDAP
+image::Linked.png[The Architecture of a Data Analysis Package using OPeNDAP,342,528,align="center"] 
+// .The Architecture of a Data Analysis Package Using OPeNDAP
 
-The Architecture of a Data Analysis Package Using OPeNDAP
-
- +
+// + eliminated lb 6/28/16
 OPeNDAP also provides a data translation facility. Data from the
 original data file is translated by the OPeNDAP server into the OPeNDAP
 data model for transmission to the client. Upon receiving the data, the
@@ -184,9 +198,11 @@ libraries to link with existing software. There is more about these in
 link:/index.php?title=UserGuideOPeNDAPClient&action=edit&redlink=1[OPeNDAP
 Client].
 
-[[the-opendap-services]]
-[[The_OPeNDAP_Services]]3 The OPeNDAP Services
-----------------------------------------------
+// [[the-opendap-services]]
+// [[The_OPeNDAP_Services]]
+== 3 The OPeNDAP Services ==
+// ----—————————————————————
+// reformatted title lb 6/28/16
 
 The communication between an OPeNDAP client and server is specified by
 the Data Access Protocol (DAP). This defines the range of messages a
@@ -248,9 +264,11 @@ DDX ::
   The DDX is an XML version of the Data Attribute and Data Description
   replies. See link:/index.php/UserGuideServer#DDX[DDX Request].
 
-[[the-opendap-server]]
-[[The_OPeNDAP_Server]]4 The OPeNDAP Server
-------------------------------------------
+// [[the-opendap-server]]
+// [[The_OPeNDAP_Server]]
+== 4 The OPeNDAP Server ==
+// ------------------------------------------
+// reformatted lb 6/28/16
 
 OPeNDAP provides a definition of the communication between client and
 server. Servers and clients who conform to that standard can communicate
@@ -279,9 +297,14 @@ response, relying on the OLFS to convert messages to whatever format
 will accommodate the user. Most users won’t make requests directly to
 the BES.
 
- +
-
-/index.php/File:HyraxArchitecture.jpg[image:/images/thumb/c/c5/HyraxArchitecture.jpg/600px-HyraxArchitecture.jpg[HyraxArchitecture.jpg,width=600,height=450]]
+// +
+// eliminated lb 6/28/16
+// /index.php/File:HyraxArchitecture.jpg[image:/images/thumb/c/c5/HyraxArchitecture.jpg/600px-HyraxArchitecture.jpg
+// [HyraxArchitecture.jpg,width=600,height=450]]
+// trying new link to figure lb 6/28/16
+.Hyrax Architecture
+image::HyraxArchitecture.jpg[Hyrax Architecture,600,450,align="center"]
+// .Hyrax Architecture
 
 _Hyrax_ is an alternative name for the OPeNDAP 4 Data Server.
 
@@ -295,9 +318,10 @@ description of how to install and configure an OPeNDAP data server
 (Hyrax).
 
 [[administration-and-centralization-of-data]]
-[[Administration_and_Centralization_of_Data]]5 Administration and
-Centralization of Data
-----------------------------------------------------------------------------------------
+[[Administration_and_Centralization_of_Data]]
+== 5 Administration and Centralization of Data ==
+// -----------------------------------------------------------------------------------
+// eliminated '--' reformatted title lb 6/28/16
 
 Under OPeNDAP, there is no central archive of data. Data under OPeNDAP
 is organized in a manner similar to the World Wide Web itself. That is,
@@ -318,150 +342,10 @@ data set with the GCMD catalog, which makes the data set known to the
 OPeNDAP data location service. The THREDDS catalog service is another
 way to make information about your data widely available.
 
- +
+// + eliminated lb 6/28/16
 The remainder of this book will be divided into three major sections:
 instructions on the building and operating of OPeNDAP clients; a
 tutorial and reference on running OPeNDAP servers and making data
 available to OPeNDAP clients; and technical documentation describing the
 implementation details (and the motivation behind many of the design
 decisions) of the OPeNDAP software.
-
-Retrieved from
-"http://docs.opendap.org/index.php?title=UserGuideIntroduction&oldid=11741"
-
-[[catlinks]][[column-one]]
-[[navigation-menu]]
-Navigation menu
-~~~~~~~~~~~~~~~
-
-[[p-cactions]]
-[[views]]
-Views
-^^^^^
-
-* [[ca-nstab-main]]
-+
-link:/index.php/UserGuideIntroduction[Page]
-* [[ca-talk]]
-+
-/index.php?title=Talk:UserGuideIntroduction&action=edit&redlink=1[Discussion]
-* [[ca-viewsource]]
-+
-link:/index.php?title=UserGuideIntroduction&action=edit[View source]
-* [[ca-history]]
-+
-link:/index.php?title=UserGuideIntroduction&action=history[History]
-
-[[p-personal]]
-[[personal-tools]]
-Personal tools
-^^^^^^^^^^^^^^
-
-* [[pt-login]]
-+
-/index.php?title=Special:UserLogin&returnto=UserGuideIntroduction[Log
-in]
-
-[[p-logo]]
-link:/index.php/Home[]
-
-[[p-navigation]]
-[[navigation]]
-Navigation
-^^^^^^^^^^
-
-* [[n-Home]]
-+
-link:/index.php/Home[Home]
-* [[n-Documentation]]
-+
-link:/index.php/Documentation[Documentation]
-* [[n-Developer-Info]]
-+
-link:/index.php/Developer_Info[Developer Info]
-* [[n-Projects]]
-+
-link:/index.php/Development[Projects]
-* [[n-OPULS.2FDAP4]]
-+
-link:/index.php/OPULS_Development[OPULS/DAP4]
-* [[n-Working-Groups]]
-+
-link:/index.php/Working_Groups[Working Groups]
-* [[n-Meetings]]
-+
-link:/index.php/Meetings[Meetings]
-* [[n-Jira]]
-+
-https://opendap.atlassian.net/[Jira]
-* [[n-Git.28hub.29]]
-+
-https://github.com/opendap[Git(hub)]
-* [[n-Document-Templates]]
-+
-link:/index.php/Document_Templates[Document Templates]
-* [[n-help]]
-+
-/index.php/Help:Contents[Help]
-* [[n-Trac-.28retired.29]]
-+
-https://scm.opendap.org/trac/[Trac (retired)]
-* [[n-Subversion-.28retired.29]]
-+
-https://scm.opendap.org/svn/[Subversion (retired)]
-
-[[p-search]]
-[[search]]
-Search
-^^^^^^
-
-[[searchBody]]
- 
-
-[[p-tb]]
-[[tools]]
-Tools
-^^^^^
-
-* [[t-whatlinkshere]]
-+
-/index.php/Special:WhatLinksHere/UserGuideIntroduction[What links here]
-* [[t-recentchangeslinked]]
-+
-/index.php/Special:RecentChangesLinked/UserGuideIntroduction[Related
-changes]
-* [[t-specialpages]]
-+
-/index.php/Special:SpecialPages[Special pages]
-* [[t-print]]
-+
-link:/index.php?title=UserGuideIntroduction&printable=yes[Printable
-version]
-* [[t-permalink]]
-+
-link:/index.php?title=UserGuideIntroduction&oldid=11741[Permanent link]
-* [[t-info]]
-+
-link:/index.php?title=UserGuideIntroduction&action=info[Page
-information]
-
-[[footer]]
-[[f-poweredbyico]]
-link://www.mediawiki.org/[image:/skins/common/images/poweredby_mediawiki_88x31.png[Powered
-by MediaWiki,width=88,height=31]]
-
-* [[lastmod]]
-+
-This page was last modified on 10 April 2015, at 20:44.
-* [[viewcount]]
-+
-This page has been accessed 7,052 times.
-* [[privacy]]
-+
-/index.php/OPeNDAP_Documentation:Privacy_policy[Privacy policy]
-* [[about]]
-+
-/index.php/OPeNDAP_Documentation:About[About OPeNDAP Documentation]
-* [[disclaimer]]
-+
-/index.php/OPeNDAP_Documentation:General_disclaimer[Disclaimers]
